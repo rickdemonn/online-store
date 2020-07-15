@@ -1,1 +1,32 @@
-[{"id":"1","name":"Smartphones","description":"Smartphones of any modifications"},{"id":"2","name":"Notebooks and computers","description":"Notebooks, computers, parts for computers"},{"id":"3","name":"Auto-moto","description":"Parts for auto},{"id":"4","name":"Books","description":"Books and magazines"},{"id":"5","name":"Toys","description":"Toys for kids"}]
+[
+  {
+    "id": "1",
+    "name": "Smartphones",
+    "description": "Smartphones of any modifications",
+    "img": "images/smartphones.jpg"
+  },
+  {
+    "id": "2",
+    "name": "Notebooks and computers",
+    "description": "Notebooks, computers, parts for computers",
+    "img": "images/laptops.jpg"
+  },
+  {
+    "id": "3",
+    "name": "Auto-moto",
+    "description": "Parts for auto",
+    "img": "images/auto-moto.jpg"
+  },
+  {
+    "id": "4",
+    "name": "Books",
+    "description": "Books and magazines",
+    "img": "images/books.jpg"
+  },
+  {
+    "id": "5",
+    "name": "Toys",
+    "description": "Toys for kids",
+    "img": "images/toys.jpg"
+  }
+]
