@@ -3,7 +3,7 @@
 
 ###FE
 * JavaScript ES6
-* bible
+* bable
 * jQuery
 * Ajax
 * Json
