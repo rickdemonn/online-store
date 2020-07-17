@@ -1,1 +1,2 @@
-categoryStartListener();
+categoriesStartListener();
+productsStartListener();
