@@ -8,7 +8,7 @@ const createCategories = event => {
     $('#categories-block').remove();
     const categories = $('<div/>', {id: 'categories-block'}).prependTo($('.site-main'));
     categories.append($('<div/>').addClass('container'));
-    fetch('../../category.json')
+    fetch('../../categories.json')
         .then(res => {
             return res.json();
         })
