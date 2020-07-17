@@ -38,7 +38,27 @@ const createBlockOfProducts = products => {
 };
 
 const showProductsByCategory = event => {
-
+    const categoryId = event.currentTarget.dataset.id;
+    $('#categories-block').remove();
+    const productsBlock = $('<div/>', {id: 'products-block'}).prependTo($('.site-main'));
+    productsBlock.append($('<div/>').addClass('container'));
+    fetch(productsUrl)
+        .then(res => {
+            return res.json();
+        })
+        .then(res => {
+            let productsByCategory = [];
+            res.find(product => {
+               if(product.categoryId === categoryId) {
+                   productsByCategory.push(product);
+               }
+            });
+            createBlockOfProducts(productsByCategory);
+        })
+        .catch(reject => {
+            console.log("Ups");
+            console.log(reject);
+        });
 };
 
 const addProductToCart = (id, categoryId) => {
