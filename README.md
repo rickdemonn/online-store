@@ -15,6 +15,8 @@
 
 [Our MindMaster](https://mm.tt/1560785549?t=WBlYjhe4y7)
 
+[Join to Skype group](https://join.skype.com/kzdqevnOrQnO)
+
 ## Интернет-магазин
 * Главная страница
 * Страница товара
