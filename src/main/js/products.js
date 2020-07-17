@@ -33,7 +33,7 @@ const createBlockOfProducts = products => {
             .append($('<div/>', {text: brand}))
             .append($('<div/>', {text: model}))
             .append($('<div/>', {text: `Price is: ${price}`}))
-            .append($('<div/>', {text: 'Add to cart'}).click(addProductToCart(id, categoryId)));
+            .append($('<div/>', {text: 'Add to cart'}).click(addProductToCart));
     })
 };
 
@@ -61,6 +61,6 @@ const showProductsByCategory = event => {
         });
 };
 
-const addProductToCart = (id, categoryId) => {
-    //TODO add product to card in localstorage
+const addProductToCart = event => {
+    //TODO add product to cart in localstorage
 };
