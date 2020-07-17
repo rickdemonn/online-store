@@ -13,7 +13,7 @@
 #### For build with babel run command: 
 `npm start`
 
-[Our MindMaster](https://mm.tt/1560785549?t=WBlYjhe4y7])
+[Our MindMaster](https://mm.tt/1560785549?t=WBlYjhe4y7)
 
 ## Интернет-магазин
 * Главная страница
