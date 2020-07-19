@@ -20,5 +20,11 @@
     "babel-cli": "^6.26.0",
     "babel-preset-env": "^1.7.0",
     "jquery": "^3.5.1"
+  },
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-sass": "^4.0.2",
+    "gulp-sourcemaps": "^2.6.5",
+    "gulp-watch": "^5.0.1"
   }
 }

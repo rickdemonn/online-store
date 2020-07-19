@@ -1,5 +1,6 @@
 const categoriesStartListener = () => {
     $('#category-btn').click(createCategories);
+    $('.button-hero').click(createCategories);
 };
 
 const createCategories = event => {
