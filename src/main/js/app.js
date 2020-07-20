@@ -1,2 +1,4 @@
 categoriesStartListener();
 productsStartListener();
+changeCountOfCardIcon();
+cartListener();
