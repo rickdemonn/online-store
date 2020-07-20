@@ -52,6 +52,22 @@ const cartListener = () => {
 	$('.ti-shopping-cart').click(createModal);
 }
 
-const createModal = () => {
-	// $('<div/>', {id: 'cart-modal'})
+const createModal = event => {
+	const overlay = $('#overlay');
+	const close = $('.modal_close, #overlay');
+	const modal = $('.modal_div');
+	event.preventDefault();
+
+	overlay.fadeIn(400, () => { // пoсле oкoнчaния пoкaзывaния oверлэя
+				$(modal).css('display', 'block').animate({opacity: 1, top: '50%'}, 200);
+			});
+
+	close.click(() => {
+		modal.animate({opacity: 0, top: '45%'}, 200, // плaвнo прячем
+						() => { // пoсле этoгo
+							$(this).css('display', 'none');
+							overlay.fadeOut(400); // прячем пoдлoжку
+						}
+				);
+	})
 }
