@@ -1,4 +1,4 @@
 categoriesStartListener();
 productsStartListener();
-changeCountOfCardIcon();
+initLocalStorage();
 cartListener();
