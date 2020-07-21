@@ -91,7 +91,7 @@ const fillCart = () => {
 					})
 				})
 				if(isEmptyCart) {
-					$('<div/>', {text: 'Cart is empty'})
+					$('<div/>', {text: 'Cart is empty'}).appendTo($('#modal-cart-block'));
 				} else {
 					$('<button/>', {
 						type: 'button',
