@@ -84,13 +84,13 @@ const fillCart = () => {
 				let isEmptyCart = true;
 				res.forEach(product => {
 					productsInCart.forEach(productInCart => {
-						if(product.id === productInCart.productId) {
+						if (product.id === productInCart.productId) {
 							isEmptyCart = false;
 							createBlockWithProductInCart(product, productInCart.count);
 						}
 					})
 				})
-				if(isEmptyCart) {
+				if (isEmptyCart) {
 					$('<div/>', {text: 'Cart is empty'}).appendTo($('#modal-cart-block'));
 				} else {
 					$('<button/>', {
@@ -101,19 +101,46 @@ const fillCart = () => {
 			});
 }
 
-const createBlockWithProductInCart = (product, count) => {
-	const { productId, brand, model, price, img } = product;
-	const productCard = $('<div/>', {'data-id': productId}).addClass('product-in-cart-card').appendTo($('#modal-cart-block'));
+const createBlockWithProductInCart = (product, count, productInCartNumber) => {
+	const {id, brand, model, price, img} = product;
+	const productCard = $('<div/>', {
+		'data-id': id,
+		'data-count': count,
+		id: `product-block-${productInCartNumber}`
+	}).addClass('product-in-cart-card').appendTo($('#modal-cart-block'));
 	$(`<img src="${img}">`).addClass('img-in-cart').appendTo(productCard);
-	$('<div>',{text: `${brand} ${model} `}).appendTo(productCard);
-	$('<div>',{text: `Count x ${count}`}).appendTo(productCard);
-	$('<div>',{text: `Price is ${price * count}`}).appendTo(productCard);
-	$('<button/>',{type: 'button', text: '-'}).click(removeOneProductFromCart).appendTo(productCard);
-	$('<button/>',{type: 'button', text: '+'}).click(addOneProductToCart).appendTo(productCard);
+	$('<div>', {text: `${brand} ${model} `}).appendTo(productCard);
+	$('<div>', {text: `Count x ${count}`}).appendTo(productCard);
+	$('<div>', {text: `Price is ${price * count}`}).appendTo(productCard);
+	$('<button/>', {type: 'button', text: '-'}).click(removeOneProductFromCart).appendTo(productCard);
+	$('<button/>', {type: 'button', text: '+'}).click(addOneProductToCart).appendTo(productCard);
 }
 
 const removeOneProductFromCart = event => {
-	//TODO
+	const productInCartId = event.target.parentElement.getAttribute('id');
+	const productBlock = $(`#${productInCartId}`)
+	const productId = event.target.parentElement.dataset.id;
+	let count = parseInt(event.target.parentElement.dataset.count);
+	let cart = JSON.parse(localStorage.getItem('cart'));
+	let newCart = [];
+	if (count === 1) {
+		productBlock.remove();
+		cart.find(productInCart => {
+			if (productInCart.productId !== productId) {
+				newCart.push(productInCart);
+				localStorage.setItem('cart', JSON.stringify(newCart));
+			}
+		});
+	} else {
+		cart.find(productInCart => {
+			if (productInCart.productId !== productId) {
+				productInCart.count = --count;
+				localStorage.setItem('cart', JSON.stringify(cart));
+			}
+			//TODO not working when count > 1
+		});
+	}
+	changeCountOfCardIcon();
 }
 
 const addOneProductToCart = event => {
