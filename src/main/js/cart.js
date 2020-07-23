@@ -176,7 +176,31 @@ const removeOneProductFromCart = event => {
 }
 
 const addOneProductToCart = event => {
-	//TODO
+	const productInCartId = event.target.parentElement.getAttribute('id');
+	const productInCartNumberInId = productInCartId.match(/\d/);
+	const productBlock = $(`#${productInCartId}`);
+	const productId = event.target.parentElement.dataset.id;
+
+	const priceSelector = `#product-block-price-${productInCartNumberInId[0]}`
+	let price = parseInt($(priceSelector).attr('data-price'));
+
+	const countSelector = `#product-block-count-${productInCartNumberInId[0]}`
+	let count = parseInt($(countSelector).attr('data-count'));
+
+	let cart = JSON.parse(localStorage.getItem('cart'));
+
+	cart.find(productInCart => {
+		if (productInCart.productId === productId){
+			productInCart.count = ++count;
+		}
+	});
+
+	productBlock.attr('data-count', count);
+	$(countSelector).attr('data-count', count);
+	$(countSelector).text(`Count x ${count}`);
+	$(priceSelector).text(`Price is ${price * count}`);
+	localStorage.setItem('cart', JSON.stringify(cart));
+	changeCountOfCardIcon();
 }
 
 const placeAnOrder = event => {
