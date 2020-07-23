@@ -6,7 +6,9 @@ const initLocalStorage = () => {
 }
 
 const changeCountOfCardIcon = count => {
-	if (count) {
+	if (count === 0) {
+		$('.nav-shop__circle').text('');
+	} else if (count) {
 		$('.nav-shop__circle').text(count);
 	} else {
 		const cart = JSON.parse(localStorage.getItem('cart'));
@@ -82,11 +84,12 @@ const fillCart = () => {
 			.then(res => res.json())
 			.then(res => {
 				let isEmptyCart = true;
+				let productInCartNumber = 1;
 				res.forEach(product => {
 					productsInCart.forEach(productInCart => {
 						if (product.id === productInCart.productId) {
 							isEmptyCart = false;
-							createBlockWithProductInCart(product, productInCart.count);
+							createBlockWithProductInCart(product, productInCart.count, productInCartNumber++);
 						}
 					})
 				})
@@ -95,7 +98,8 @@ const fillCart = () => {
 				} else {
 					$('<button/>', {
 						type: 'button',
-						text: 'place an order'
+						text: 'place an order',
+						id: 'place-an-order-btn'
 					}).click(placeAnOrder).appendTo($('#modal-cart-block'));
 				}
 			});
@@ -110,34 +114,62 @@ const createBlockWithProductInCart = (product, count, productInCartNumber) => {
 	}).addClass('product-in-cart-card').appendTo($('#modal-cart-block'));
 	$(`<img src="${img}">`).addClass('img-in-cart').appendTo(productCard);
 	$('<div>', {text: `${brand} ${model} `}).appendTo(productCard);
-	$('<div>', {text: `Count x ${count}`}).appendTo(productCard);
-	$('<div>', {text: `Price is ${price * count}`}).appendTo(productCard);
+	$('<div>', {
+		text: `Count x ${count}`,
+		id: `product-block-count-${productInCartNumber}`,
+		'data-count': count
+	}).appendTo(productCard);
+	$('<div>', {
+		text: `Price is ${price * count}`,
+		id: `product-block-price-${productInCartNumber}`,
+		'data-price': price
+	}).appendTo(productCard);
 	$('<button/>', {type: 'button', text: '-'}).click(removeOneProductFromCart).appendTo(productCard);
 	$('<button/>', {type: 'button', text: '+'}).click(addOneProductToCart).appendTo(productCard);
 }
 
 const removeOneProductFromCart = event => {
 	const productInCartId = event.target.parentElement.getAttribute('id');
-	const productBlock = $(`#${productInCartId}`)
+	const productInCartNumberInId = productInCartId.match(/\d/);
+	const productBlock = $(`#${productInCartId}`);
 	const productId = event.target.parentElement.dataset.id;
-	let count = parseInt(event.target.parentElement.dataset.count);
+
+	const modalCartBlockSelector = $('#modal-cart-block');
+
+	const priceSelector = `#product-block-price-${productInCartNumberInId[0]}`
+	let price = parseInt($(priceSelector).attr('data-price'));
+
+	const countSelector = `#product-block-count-${productInCartNumberInId[0]}`
+	let count = parseInt($(countSelector).attr('data-count'));
+
 	let cart = JSON.parse(localStorage.getItem('cart'));
 	let newCart = [];
 	if (count === 1) {
 		productBlock.remove();
 		cart.find(productInCart => {
-			if (productInCart.productId !== productId) {
+			if (productInCart.productId !== productId && cart.length > 1) {
 				newCart.push(productInCart);
 				localStorage.setItem('cart', JSON.stringify(newCart));
+			} else if (productInCart.productId === productId) {
+				localStorage.setItem('cart', JSON.stringify(newCart));
+
+				if (modalCartBlockSelector.children().length < 2) {
+					$('#place-an-order-btn').remove();
+					$('<div/>', {text: 'Cart is empty'}).appendTo(modalCartBlockSelector);
+					changeCountOfCardIcon(0);
+				}
 			}
 		});
 	} else {
 		cart.find(productInCart => {
-			if (productInCart.productId !== productId) {
+			if (productInCart.productId === productId) {
 				productInCart.count = --count;
+				productBlock.attr('data-count', count);
+				$(countSelector).attr('data-count', count);
+				$(countSelector).text(`Count x ${count}`);
+				$(priceSelector).text(`Price is ${price * count}`);
 				localStorage.setItem('cart', JSON.stringify(cart));
 			}
-			//TODO not working when count > 1
 		});
 	}
 	changeCountOfCardIcon();
