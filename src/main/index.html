@@ -5,29 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Aroma Shop - Home</title>
-  <link rel="icon" href="img/Fevicon.png" type="image/png">
+	<link rel="icon" href="img/Fevicon.png" type="image/png">
   <link rel="stylesheet" href="vendors/bootstrap/bootstrap.min.css">
-  <link rel="stylesheet" href="vendors/fontawesome/css/all.min.css">
-  <link rel="stylesheet" href="vendors/themify-icons/themify-icons.css">
-  <link rel="stylesheet" href="vendors/linericon/style.css">
-  <link rel="stylesheet" href="vendors/nice-select/nice-select.css">
-  <link rel="stylesheet" href="vendors/owl-carousel/owl.theme.default.min.css">
-  <link rel="stylesheet" href="vendors/owl-carousel/owl.carousel.min.css">
-  <link rel="stylesheet" href="vendors/nice-select/nice-select.css">
-  <link rel="stylesheet" href="vendors/nouislider/nouislider.min.css">
-
   <link rel="stylesheet" href="css/style.css">
-
-  <link rel="stylesheet" href="css/simpleStyle.css">
 </head>
 <body>
-<!--Modal Cart-->
-<div id="modal1" class="modal_div">
-	<span class="modal_close">X</span>
-	<div id="modal-cart-block"></div>
-</div>
-<!--Modal Cart End-->
-<div id="overlay"></div>
 	<header class="header_area">
     <div class="main_menu">
       <nav class="navbar navbar-expand-lg navbar-light">
@@ -47,8 +29,7 @@
             </ul>
 
             <ul class="nav-shop">
-              <li class="nav-item"><button><i class="ti-search"></i></button></li>
-              <li class="nav-item"><button><i class="ti-shopping-cart"></i><span class="nav-shop__circle"></span></button> </li>
+              <li class="nav-item"><button class="ti-shopping-cart"><span class="nav-shop__circle">3</span></button> </li>
             </ul>
           </div>
         </div>
@@ -290,7 +271,7 @@
                       <p>Accessories</p>
                       <h4 class="card-product__title"><a href="#">Blutooth Speaker</a></h4>
                       <p class="card-product__price">$150.00</p>
-                    </div>
+                    </div> 
                   </div>
                 </div>
                 <div class="col-md-6 col-lg-4">
@@ -369,7 +350,7 @@
                   <button class="increase items-count" type="button"><i class="ti-angle-left"></i></button>
                   <input type="text" name="qty" id="sst" size="2" maxlength="12" value="1" title="Quantity:" class="input-text qty">
                   <button class="reduced items-count" type="button"><i class="ti-angle-right"></i></button>
-                  <a class="button primary-btn" href="#">Add to Cart</a>
+                  <a class="button primary-btn" href="#">Add to Cart</a>               
                 </div>
                 <div class="card_area d-flex align-items-center">
                   <a class="icon_btn" href="#"><i class="lnr lnr lnr-diamond"></i></a>
@@ -705,11 +686,11 @@
 						<div class="single-footer-widget tp_widgets">
 							<h4 class="footer_title large_title">Our Mission</h4>
 							<p>
-								So seed seed green that winged cattle in. Gathering thing made fly you're no
+								So seed seed green that winged cattle in. Gathering thing made fly you're no 
 								divided deep moved us lan Gathering thing us land years living.
 							</p>
 							<p>
-								So seed seed green that winged cattle in. Gathering thing made fly you're no divided deep moved
+								So seed seed green that winged cattle in. Gathering thing made fly you're no divided deep moved 
 							</p>
 						</div>
 					</div>
@@ -725,14 +706,14 @@
 					<div class="col-lg-2 col-md-6 col-sm-6">
 						<div class="single-footer-widget instafeed">
 							<h4 class="footer_title">Gallery</h4>
-							<ul class="list instafeed d-flex flex-wrap">
-								<li><img src="img/gallery/r1.jpg" alt=""></li>
-								<li><img src="img/gallery/r2.jpg" alt=""></li>
-								<li><img src="img/gallery/r3.jpg" alt=""></li>
-								<li><img src="img/gallery/r5.jpg" alt=""></li>
-								<li><img src="img/gallery/r7.jpg" alt=""></li>
-								<li><img src="img/gallery/r8.jpg" alt=""></li>
-							</ul>
+							<div class="list instafeed d-flex flex-wrap">
+								<div><img src="img/gallery/r1.jpg" alt=""></div>
+								<div><img src="img/gallery/r2.jpg" alt=""></div>
+								<div><img src="img/gallery/r3.jpg" alt=""></div>
+								<div><img src="img/gallery/r5.jpg" alt=""></div>
+								<div><img src="img/gallery/r7.jpg" alt=""></div>
+								<div><img src="img/gallery/r8.jpg" alt=""></div>
+              </div>
 						</div>
 					</div>
 					<div class="offset-lg-1 col-lg-3 col-md-6 col-sm-6">
@@ -744,7 +725,7 @@
 									Head Office
 								</p>
 								<p>123, Main Street, Your City</p>
-
+	
 								<p class="sm-head">
 									<span class="fa fa-phone"></span>
 									Phone Number
@@ -753,7 +734,7 @@
 									+123 456 7890 <br>
 									+123 456 7890
 								</p>
-
+	
 								<p class="sm-head">
 									<span class="fa fa-envelope"></span>
 									Email
@@ -792,7 +773,6 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 <!--  <script src="vendors/mail-script.js"></script>-->
   <script src="../../node_modules/jquery/dist/jquery.min.js"></script>
   <script src="build/global-variables.js"></script>
-  <script src="build/cart.js"></script>
   <script src="build/categories.js"></script>
   <script src="build/products.js"></script>
   <script src="build/app.js"></script>

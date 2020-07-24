@@ -2,16 +2,16 @@
  
 const gulp = require('gulp');
 const sass = require('gulp-sass');
-const sourcemaps = require('gulp-sourcemaps');
-const watch = require('gulp-watch');
+const stripCssComments = require('gulp-strip-css-comments');
  
 gulp.task('sass', function () {
-  return gulp.src('./src/main/scss/*/*.scss')
-  .pipe(sourcemaps.init())
+  return gulp.src('./src/main/scss/style.scss')
   .pipe(sass().on('error', sass.logError))
-  .pipe(gulp.dest('./src/main/css/main.css'));
+  .pipe(stripCssComments())
+  .pipe(gulp.dest('./src/main/css/'));
 });
  
 gulp.task('watch', function () {
-  gulp.watch('./src/main/scss/*/*.scss', gulp.series('sass'));
+  gulp.watch('./src/main/scss/theme/*.scss', gulp.series('sass'));
+  gulp.watch('./src/main/scss/style.scss', gulp.series('sass'));
 });
