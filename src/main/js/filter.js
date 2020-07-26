@@ -1,3 +1,17 @@
+// я создал глобальные переменные с сылкой на продукты
+// для получения продуктов используй:
+/*
+fetch(productsUrl)
+    .then(res => {
+        return res.json();
+    })
+    .then(res => {
+        // в res у тебя уже будет весь масив продуктов который ты ниже написал
+        res.reduce((acc,elem)=>acc.add(elem.categoryId), new Set());
+        // и т.д.
+    });
+
+*/
 const filterForm = document.forms.filterForm;
  //   filterForm.hidden = true;
 const productsUrl1 = [                              // в эту переменную необходимо внести products.json как массив объектов
