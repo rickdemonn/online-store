@@ -43,5 +43,5 @@ gulp.task('styles', () => {
 gulp.task('default', defaultTask());
 
 gulp.task('watch', () => {
-  return gulp.watch(['./src/main/js/*.js', './src/main/scss/*.scss', './src/main/img/*.*'], {}, defaultTask())
+  return gulp.watch(['./src/main/js/*.js', './src/main/scss/*.scss', './src/main/images/**/*.*'], {}, defaultTask())
 })
