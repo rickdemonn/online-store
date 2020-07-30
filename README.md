@@ -11,7 +11,9 @@
 * CSS
 
 #### For build with babel run command: 
-`npm start`
+`npm install`
+
+`gulp`
 
 [Our MindMaster](https://mm.tt/1560785549?t=WBlYjhe4y7)
 
