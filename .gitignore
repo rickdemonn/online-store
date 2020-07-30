@@ -3,7 +3,6 @@
 /.env
 /run/.env
 node_modules
-src/main/build
 
 
 ### STS ###
