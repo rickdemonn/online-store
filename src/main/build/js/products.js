@@ -4,10 +4,9 @@ const productsStartListener = () => {
 
 const createProducts = event => {
     event.preventDefault();
-    $('.hero-banner').remove();
-    $('#categories-block').remove();
-    $('#products-block').remove();
-    const productsBlock = $('<div/>', {id: 'products-block'}).prependTo($('.site-main'));
+    $('section').removeClass('active');
+    $('.all-products-page').addClass('active').html('');
+    const productsBlock = $('<div/>', {id: 'products-block'}).appendTo($('.all-products-page'));
     productsBlock.append($('<div/>').addClass('container'));
     fetch(productsUrl)
         .then(res => {
@@ -40,7 +39,7 @@ const createBlockOfProducts = products => {
 const showProductsByCategory = event => {
     const categoryId = event.currentTarget.dataset.id;
     $('#categories-block').remove();
-    const productsBlock = $('<div/>', {id: 'products-block'}).prependTo($('.site-main'));
+    const productsBlock = $('<div/>', {id: 'products-block'}).prependTo($('.all-products-page'));
     productsBlock.append($('<div/>').addClass('container'));
     fetch(productsUrl)
         .then(res => {
