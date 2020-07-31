@@ -83,8 +83,8 @@ const fillCart = () => {
 				if(isEmptyCart) {
 					$('.table > tbody').append($('<div>', {text: 'Cart is Empty'}));
 				} else {
-					$('.table > tbody').append($('<div>', {id: 'btn-for-buy-form'}).addClass('custom-btn')
-							.append($('<a/>', {href: '#', text: 'Apply'}).addClass('primary-btn')));
+					$('.table > tbody').append($('<div>', {id: 'btn-for-buy-form'}).addClass('custom-btn').click(checkOutListener)
+							.append($('<a/>', {href: '#', text: 'Checkout'}).addClass('primary-btn')));
 				}
 			});
 }
@@ -182,8 +182,4 @@ const addOneProductToCart = event => {
 	$(`#product-in-cart-num-${productInNumber} .product-in-cart-price-total`).text(`$ ${price * productInCartCount}`);
 	$(`#product-in-cart-num-${productInNumber}`).attr('data-count', productInCartCount);
 	changeCountOfCardIcon();
-}
-
-const placeAnOrder = event => {
-	//TODO форма для заказа товаров из корзины с волидацией
 }
