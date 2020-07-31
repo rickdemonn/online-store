@@ -92,3 +92,19 @@
     width: 30px;
     height: 30px;
 }
+
+.product_count {
+    display: flex;
+    position: relative;
+    margin-left: 20px;
+    button {
+        position: inherit;
+        font-size: 20px;
+    }
+}
+
+#btn-for-buy-form {
+    display: flex;
+    justify-content: end;
+    align-items: end;
+}

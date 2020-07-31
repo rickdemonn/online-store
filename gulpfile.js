@@ -18,12 +18,11 @@ gulp.task('images',  () => {
 
 gulp.task('js', () => {
   return gulp.src('./src/main/js/*.js')
-        .pipe(babel())
-        .pipe(uglify())
-        .pipe(concat('app-main.js', {newLine: ';'}))
-        .pipe(rename({ suffix: '.min' }))
+        // .pipe(babel())
+        // .pipe(uglify())
+        // .pipe(concat('app-main.js', {newLine: ';'}))
+        // .pipe(rename({ suffix: '.min' }))
         .pipe(gulp.dest('src/main/build/js'))
-        .pipe(notify({ message: 'Js task complete' }));
 });
 
 const defaultTask = () => {
@@ -36,7 +35,6 @@ gulp.task('styles', () => {
         .pipe(stripCssComments())
         .pipe(rename({ suffix: '.min' }))
         .pipe(gulp.dest('./src/main/build/css'))
-        .pipe(notify({ message: 'Styles task complete' }));
 
 });
 

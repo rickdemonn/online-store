@@ -29,7 +29,7 @@
             </ul>
 
             <ul class="nav-shop">
-              <li class="nav-item"><button class="ti-shopping-cart"><span class="nav-shop__circle">3</span></button> </li>
+              <li class="nav-item"><button class="ti-shopping-cart"><span class="nav-shop__circle"></span></button> </li>
             </ul>
           </div>
         </div>
@@ -38,7 +38,7 @@
   </header>
 	<main class="site-main">
     <!-- Home Page start -->
-    <section class="section active home-page hero-banner">
+    <section class="section home-page hero-banner active">
       <div class="container">
         <div class="row no-gutters align-items-center pt-60px">
           <div class="col-5 d-none d-sm-block">
@@ -58,6 +58,28 @@
       </div>
     </section>
     <!-- Home Page end -->
+    <!-- Cart Section Start -->
+     <section class="cart_area section">
+       <div class="container">
+         <div class="cart_inner">
+           <div class="table-responsive">
+             <table class="table">
+               <thead>
+               <tr>
+                 <th scope="col">Product</th>
+                 <th scope="col">Price</th>
+                 <th scope="col">Quantity</th>
+                 <th scope="col">Total</th>
+               </tr>
+               </thead>
+               <tbody>
+               </tbody>
+             </table>
+           </div>
+         </div>
+       </div>
+     </section>
+    <!-- Cart Section End -->
     <!-- Category Page start -->
     <section class="section category-page section-margin--small mb-5">
       <div class="container">
@@ -739,6 +761,12 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 	</footer>
 
   <script src="../../node_modules/jquery/dist/jquery.min.js"></script>
-  <script src="build/js/app-main.min.js"></script>
+<!--  <script src="build/js/app-main.min.js"></script>-->
+  <script src="build/js/global-variables.js"></script>
+  <script src="build/js/cart.js"></script>
+  <script src="build/js/categories.js"></script>
+  <script src="build/js/filter.js"></script>
+  <script src="build/js/products.js"></script>
+  <script src="build/js/z-app.js"></script>
 </body>
 </html>
