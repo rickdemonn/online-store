@@ -26,11 +26,11 @@ const categoriesStartListener = () => {
 const createCategories = event => {
     event.preventDefault();
 
-    $('.hero-banner').removeClass('active');
+    $('section').removeClass('active');
     $('.category-page').addClass('active');
 
     const categories = document.querySelector('.category-list');
-    categories.append($('<div/>').addClass('container'));
+    // categories.append($('<div/>').addClass('container'));
     fetch(categoriesUrl)
         .then(res => {
             return res.json();
@@ -39,44 +39,38 @@ const createCategories = event => {
             createBlockOfCategories(res);
         })
         .catch(reject => {
-            console.log("Ups");
+            console.log("Oops");
             console.log(reject);
         });
 };
 
 const createBlockOfCategories = (response) => {
     response.forEach(categoryItem => {
-        const parent = document.querySelector('.category-list .row');
+        const parent = document.querySelector('.main-categories ul');
         
         const {id, name, description, img} = categoryItem;
-        const card = document.createElement('div');
-        card.classList.add("card", "card-product", "col-md-6", "col-lg-4");
 
-        const image = document.createElement('img');
-        image.setAttribute('src', img);
+        const listItem = document.createElement('li');
+        listItem.classList.add("filter-list");
 
-        const textContainer = document.createElement('div');
-        textContainer.classList.add('card-body', 'text-center');
+        const radio = document.createElement('input');
+        radio.setAttribute('type', 'radio');
+        radio.setAttribute('name', 'category');
+        radio.setAttribute('id', `category-${id}`);
+        radio.setAttribute('category-id', id);
+        radio.className = 'pixel-radio';
 
-        const productName = document.createElement('h4');
-        productName.textContent = name;
+        const label = document.createElement('label');
+        label.setAttribute('for', `category-${id}`);
+        label.textContent = name;
 
-        const productDescription = document.createElement('p');
-        productDescription.className = 'card-product__price';
-        productDescription.textContent = description;
+        listItem.appendChild(radio);
+        listItem.appendChild(label);
 
-        card.appendChild(image);
-        textContainer.appendChild(productName);
-        textContainer.appendChild(productDescription);
-        card.appendChild(textContainer);
+        listItem.addEventListener('click', () => {
+            showProductsByCategory(listItem);
+        })
 
-        card.addEventListener('click', showProductsByCategory)
-
-        parent.appendChild(card);
-        
-        // $('<div/>', {'data-id': id}).addClass('card').addClass('card-product').click(showProductsByCategory).appendTo($('.category-list'));
-        // card.append($('<img>',{'src': img}).addClass('card-img'))
-        //     .append($('<div/>', {text: name}))
-        //     .append(($('<div/>', {text: description})));
+        parent.appendChild(listItem);
     })
 };

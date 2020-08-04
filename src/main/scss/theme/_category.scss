@@ -76,7 +76,11 @@
 	.main-categories {
 		padding: 20px 28px;
 		background: #f1f6f7;
-    // box-shadow: 0 10px 10px rgba(153, 153, 153, 0.1);
+
+		ul {
+			list-style-type: none;
+			padding-left: 0;
+		}
     
     .pixel-radio{
       background: transparent !important;
