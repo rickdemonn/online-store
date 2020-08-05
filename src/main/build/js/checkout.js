@@ -3,6 +3,8 @@ const checkOutListener = () => {
 	$('.checkout_area').addClass('active');
 
 	fillYourOrder();
+
+	$('.button-paypal').click(startOfThePurchaseProcess);
 }
 
 const fillYourOrder = () => {
