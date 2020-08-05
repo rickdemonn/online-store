@@ -43,6 +43,8 @@ fetch(productsUrl)
        } else if (target.checked!==true) {
        filterForm.innerHTML='';
        filterFormCreate1 (productsBrandSelect);
+           const parent = document.querySelector('.category-list .row');
+           parent.innerHTML = '';
        //  функция очистки
     }
            });
