@@ -10,6 +10,7 @@ const checkOutListener = () => {
 const fillYourOrder = () => {
 	const cart = JSON.parse(localStorage.getItem('cart'));
 	let totalPrice = 0;
+	$('#order-products').children().not(':first-child').remove();
 
 	fetch(productsUrl)
 			.then(res => res.json())
@@ -32,7 +33,7 @@ const createProductInOrder = (product, count) => {
 					.append($('<div/>').addClass('product-in-order-card')
 							.append($('<span/>', {text: product.brand + ' '}))
 							.append($('<span/>', {text: product.model}))
-							.append($('<span/>', {text: ` x ${count}`}))
-							.append($('<span/>', {text: ` $ ${count * product.price}`}))
+							.append($('<span/>', {text: ` x${count}`}))
+							.append($('<span/>', {text: ` $${count * product.price}`}))
 					));
 }
