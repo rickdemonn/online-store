@@ -28,7 +28,8 @@ const createProductInOrder = (product, count) => {
 	$('#order-products')
 			.append($('<li/>')
 					.append($('<div/>').addClass('product-in-order-card')
-							.append($('<span/>', {text: product.brand}))
+							.append($('<span/>', {text: product.brand + ' '}))
+							.append($('<span/>', {text: product.model}))
 							.append($('<span/>', {text: ` x ${count}`}))
 							.append($('<span/>', {text: ` $ ${count * product.price}`}))
 					));
