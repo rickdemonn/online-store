@@ -1,5 +1,5 @@
 const filterForm = document.forms.filterForm;
-let productsForOutput = {brand:[]}; //создание объекта
+//let productsForOutput = {brand:[]}; //создание объекта
 
 fetch(productsUrl)
     .then(res => {
@@ -17,17 +17,38 @@ fetch(productsUrl)
 
     if(target.checked===true)
       {
-       console.log(key); // выводит
-       console.log(value); // выводит
-       productsForOutput[key].push(value); //Uncaught TypeError: Cannot read property 'push' of undefined
-       console.log(productsForOutput);  // выводит
+       filterForm.innerHTML='';
+       filterFormCreate1 (productsBrandSelect, value);
+       fetch(productsUrl)
+           .then(res => {
+               return res.json();
+           })
+             .then(res => {
+              let productsFiltered = [];
+              res.find(product => {
+              if(product.brand === value) {
+               productsFiltered.push(product);
+              }
+              });
+               createBlockOfProducts(productsFiltered);
+              })
+              .catch(reject => {
+                  console.log("Oops");
+                  console.log(reject);
+              });
+      // console.log(key); // выводит
+      //console.log(value); // выводит
+      //productsForOutput[key].push(value); //Uncaught TypeError: Cannot read property 'push' of undefined
+      //console.log(productsForOutput);  // выводит
        } else if (target.checked!==true) {
-       alert("here we will delete not nesessary");
+       filterForm.innerHTML='';
+       filterFormCreate1 (productsBrandSelect);
+       //  функция очистки
     }
            });
          });
 
-function filterFormCreate1(productsBrandSelect) {  //функция вывода checkbox уникальных значени одного ключа (без повторений)
+function filterFormCreate1(productsBrandSelect, value) {  //функция вывода checkbox уникальных значени одного ключа (без повторений)
         //filterForm.innerHTML='';
 
                productsBrandSelect.forEach(function(item) {
@@ -35,6 +56,7 @@ function filterFormCreate1(productsBrandSelect) {  //функция вывода
                optionItemElement.setAttribute("type", "checkbox");
                optionItemElement.setAttribute("name", "brand");
                optionItemElement.setAttribute("value", item);
+               if (value===item){optionItemElement.setAttribute('checked', 'checked')};
                let p =document.createElement("span");
                p.innerHTML = item + ": ";
                let br =document.createElement("br");
@@ -43,6 +65,7 @@ function filterFormCreate1(productsBrandSelect) {  //функция вывода
                filterForm.appendChild(br);
                 });
 };
+
 
 //   filterForm.hidden = true;
 

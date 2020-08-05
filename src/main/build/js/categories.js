@@ -36,7 +36,7 @@ const createCategories = event => {
             return res.json();
         })
         .then(res => {
-            $('.main-categories ul').children().remove();
+            $('.main-categories ul').children().remove(); //fix duplicate
             createBlockOfCategories(res);
         })
         .catch(reject => {
