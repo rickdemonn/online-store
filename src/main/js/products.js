@@ -50,6 +50,10 @@ const createBlockOfProducts = products => {
         textContainer.appendChild(productDescription);
         card.appendChild(textContainer);
 
+        //Dima - add button for job "checkout"
+        $('<button/>', {type: 'button', text: 'Add to cart', 'data-id': id}).click(addProductToCart).appendTo(card);
+        //
+
         parent.appendChild(card);
 
         // const card = $('<div/>', {

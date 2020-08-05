@@ -36,10 +36,10 @@ function filterFormCreate1(productsBrandSelect) {  //функция вывода
                optionItemElement.setAttribute("name", "brand");
                optionItemElement.setAttribute("value", item);
                let p =document.createElement("span");
-               p.innerHTML = " " + item;
+               p.innerHTML = item + ": ";
                let br =document.createElement("br");
-               filterForm.appendChild(optionItemElement);
                filterForm.appendChild(p);
+               filterForm.appendChild(optionItemElement);
                filterForm.appendChild(br);
                 });
 };
