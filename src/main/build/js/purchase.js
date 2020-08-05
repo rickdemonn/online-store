@@ -2,7 +2,9 @@ const startOfThePurchaseProcess = () => {
 	const form = $('#checkout-form');
 	const isMistakeInForm = validateForm(form);
 
-	console.log(isMistakeInForm)
+	if(!isMistakeInForm) {
+		productWasSuccessfullyPurchased();
+	}
 }
 
 const validateForm = form => {
@@ -81,4 +83,8 @@ const validateForm = form => {
 	}
 
 	return isMistake;
+}
+
+const productWasSuccessfullyPurchased = () => {
+	//TODO
 }
