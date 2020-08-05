@@ -1,6 +1,10 @@
 const startOfThePurchaseProcess = () => {
 	const form = $('#checkout-form');
-	const isValidForm = validateForm(form);
+	const isMistakeInForm = validateForm(form);
+
+	if(!isMistakeInForm) {
+		productWasSuccessfullyPurchased();
+	}
 }
 
 const validateForm = form => {
@@ -13,6 +17,7 @@ const validateForm = form => {
 	const addr2 = /\w+|/;
 	const city = /[A-ZА-Я][a-zа-я]{1,}/;
 	const zip = /^\d{1,}$/;
+	const cardPattern = /^(?:4[0-9]{12}(?:[0-9]{3})?|[25][1-7][0-9]{14}|6(?:011|5[0-9][0-9])[0-9]{12}|3[47][0-9]{13}|3(?:0[0-5]|[68][0-9])[0-9]{11}|(?:2131|1800|35\d{3})\d{11})$/;
 
 	const validations = {
 		firstname: function (field) {
@@ -55,5 +60,31 @@ const validateForm = form => {
 			input.parentElement.classList.remove('error');
 		}
 	});
+
+	const cardField = $('#card-field');
+	const cardFieldParent = $('#card-field-parent');
+
+	if($('#f-option6').prop('checked')) {
+		if(!cardPattern.test(cardField.val())) {
+			isMistake = true
+			cardFieldParent.addClass('error');
+		} else {
+			cardFieldParent.removeClass('error');
+		}
+	}
+
+	let isConfirm = $('#isconfirm');
+
+	if(!isConfirm.prop('checked')) {
+		isMistake = true;
+		isConfirm.parent().addClass('error');
+	} else {
+		isConfirm.parent().removeClass('error');
+	}
+
 	return isMistake;
+}
+
+const productWasSuccessfullyPurchased = () => {
+	//TODO
 }

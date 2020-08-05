@@ -4,7 +4,24 @@ const checkOutListener = () => {
 
 	fillYourOrder();
 
+	$('#f-option6').click(createCardField);
+	$('#f-option5').click(deleteCardField);
+
 	$('.button-paypal').click(startOfThePurchaseProcess);
+}
+
+const deleteCardField = () => {
+	$('#card-field-parent').remove();
+}
+
+const createCardField = () => {
+	$('#checkout-form').append($('<div/>', {id: 'card-field-parent'}).addClass('col-md-6 form-group')
+			.append($('<input>', {
+				id: 'card-field',
+				type: 'text',
+				placeholder: 'Card number*',
+				name: 'cardfield'
+			}).addClass('form-control')))
 }
 
 const fillYourOrder = () => {
