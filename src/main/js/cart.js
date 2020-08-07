@@ -209,7 +209,7 @@ const removeOneProductFromCart = event => {
 			if (productInCart.productId === productInCartId) {
 				productInCart.count = --count;
 				$(`#product-in-cart-num-${productInNumber} .product-in-cart-count`).text(`${count}`);
-				$(`#product-in-cart-num-${productInNumber} .product-in-cart-price-total`).text(`$ ${price * count}`);
+				$(`#product-in-cart-num-${productInNumber} .product-in-cart-price-total`).text(`${price * count} UAH`);
 				$(`#product-in-cart-num-${productInNumber}`).attr('data-count', count);
 				localStorage.setItem('cart', JSON.stringify(cart));
 			}
@@ -235,7 +235,7 @@ const addOneProductToCart = event => {
 	localStorage.setItem('cart', JSON.stringify(cart));
 
 	$(`#product-in-cart-num-${productInNumber} .product-in-cart-count`).text(`${productInCartCount}`);
-	$(`#product-in-cart-num-${productInNumber} .product-in-cart-price-total`).text(`$ ${price * productInCartCount}`);
+	$(`#product-in-cart-num-${productInNumber} .product-in-cart-price-total`).text(`${price * productInCartCount} UAH`);
 	$(`#product-in-cart-num-${productInNumber}`).attr('data-count', productInCartCount);
 	changeCountOfCardIcon();
 }

@@ -41,7 +41,7 @@ const fillYourOrder = () => {
 						}
 					})
 				});
-				$('#total-in-order').text(`$ ${totalPrice}`);
+				$('#total-in-order').text(`${totalPrice} UAH`);
 			});
 }
 
@@ -52,6 +52,6 @@ const createProductInOrder = (product, count) => {
 							.append($('<span/>', {text: product.brand + ' '}))
 							.append($('<span/>', {text: product.model}))
 							.append($('<span/>', {text: ` x${count}`}))
-							.append($('<span/>', {text: ` $${count * product.price}`}))
+							.append($('<span/>', {text: ` ${count * product.price} UAH`}))
 					));
 }
