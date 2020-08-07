@@ -1,7 +1,8 @@
 /*=================== cart area css start ====================*/
 .cart_area{
-	padding-top: 90px;
-	padding-bottom: 55px;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	border-radius: 5px;
 }
 .cart_inner{
 	.table{
@@ -298,5 +299,42 @@
 	color: $title-color;
 	text-transform: capitalize;
 	font-weight: 500;
+}
+
+.close-button {
+	cursor: pointer;
+	position: absolute;
+	width: 25px;
+	height: 25px;
+	top: -25px;
+	right: -25px;
+	border: none;
+	background-image: url(../../img/cart/close-button.png);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-color: transparent;
+}
+
+.empty-cart-message {
+	text-align: center;
+	font-weight: 500;
+    font-family: "Oswald",sans-serif;
+	color: #222;
+	font-size: 20px;
+}
+
+.product-delete {
+	width: 25px;
+	height: 25px;
+	background-image: url('../../img/cart/eliminar.svg');
+	background-position: center;
+	background-size: contain;
+	background-repeat: no-repeat;
+	cursor: pointer;
+}
+
+#btn-for-buy-form {
+    cursor: pointer;
 }
 /*=================== cart area css end ====================*/

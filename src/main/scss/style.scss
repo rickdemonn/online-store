@@ -13,6 +13,17 @@
 @import "theme/single-product";
 @import "theme/footer";
 
+body {
+    .modal-shadow {
+        z-index: 150;
+        display: none;
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+}
+
 #categories-block > .container {
     display: flex;
     flex-wrap: wrap;
@@ -37,6 +48,18 @@
 
 .active {
     display: block;
+}
+
+.modal-window {
+    display: block;
+    position: fixed;
+    z-index: 200;
+    margin-left: auto;
+    margin-right: auto;
+    top: 50%;
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%);
+    background-color: #fff;
 }
 
 .modal_div {
@@ -96,17 +119,15 @@
 .product_count {
     display: flex;
     position: relative;
-    margin-left: 20px;
     button {
         position: inherit;
         font-size: 20px;
     }
 }
 
-#btn-for-buy-form {
-    display: flex;
-    justify-content: end;
-    align-items: end;
+.product-in-cart-count {
+    margin-left: 20px;
+    margin-right: 20px;
 }
 
 .error {

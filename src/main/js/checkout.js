@@ -1,4 +1,5 @@
 const checkOutListener = () => {
+	hideModalCart();
 	$('section').removeClass('active');
 	$('.checkout_area').addClass('active');
 
