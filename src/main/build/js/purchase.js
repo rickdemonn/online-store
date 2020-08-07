@@ -84,7 +84,3 @@ const validateForm = form => {
 
 	return isMistake;
 }
-
-const productWasSuccessfullyPurchased = () => {
-	//TODO
-}

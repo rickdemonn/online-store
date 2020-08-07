@@ -99,9 +99,9 @@
                  </div>
                  <div class="col-md-12 form-group p_star">
                    <select class="country_select">
-                     <option value="1">Ukraine</option>
-                     <option value="2">Poland</option>
-                     <option value="4">Moldova</option>
+                     <option value="Ukraine">Ukraine</option>
+                     <option value="Poland">Poland</option>
+                     <option value="Moldova">Moldova</option>
                    </select>
                  </div>
                  <div class="col-md-12 form-group p_star">
@@ -161,6 +161,110 @@
        </div>
      </section>
     <!-- Checkout end-->
+    <!-- Order_details start-->
+    <section class="section order_details section-margin--small">
+       <div class="container">
+         <div class="blog-banner">
+           <div class="text-center">
+             <h1>Order Confirmation</h1>
+             <nav aria-label="breadcrumb" class="banner-breadcrumb">
+               <ol class="breadcrumb">
+                 <li class="breadcrumb-item"><a href="#" id="go-to-home">Home</a></li>
+                 <li class="breadcrumb-item active" aria-current="page">Shop Category</li>
+               </ol>
+             </nav>
+           </div>
+         </div>
+         <p class="text-center billing-alert">Thank you. Your order has been received.</p>
+         <div class="row mb-5">
+           <div class="col-md-6 col-xl-6 mb-4 mb-xl-0">
+             <div class="confirmation-card">
+               <h3 class="billing-title">Order Info</h3>
+               <table class="order-rable">
+                 <tbody><tr>
+                   <td>Order number</td>
+                   <td id="order-number"></td>
+                 </tr>
+                 <tr>
+                   <td>Date</td>
+                   <td id="order-date"></td>
+                 </tr>
+                 <tr>
+                   <td>Total</td>
+                   <td id="order-total"></td>
+                 </tr>
+                 <tr>
+                   <td>Payment method</td>
+                   <td id="order-paymethod"></td>
+                 </tr>
+                 </tbody></table>
+             </div>
+           </div>
+           <div class="col-md-6 col-xl-6 mb-4 mb-xl-0">
+             <div class="confirmation-card">
+               <h3 class="billing-title">Billing Address</h3>
+               <table class="order-rable">
+                 <tbody><tr>
+                   <td>Street</td>
+                   <td id="order-street"></td>
+                 </tr>
+                 <tr>
+                   <td>City</td>
+                   <td id="order-city"></td>
+                 </tr>
+                 <tr>
+                   <td>Country</td>
+                   <td id="order-country"></td>
+                 </tr>
+                 <tr>
+                   <td>Postcode</td>
+                   <td id="order-zip"></td>
+                 </tr>
+                 </tbody></table>
+             </div>
+           </div>
+           <div class="col-md-6 col-xl-4 mb-4 mb-xl-0 hide-block">
+             <div class="confirmation-card">
+               <h3 class="billing-title">Shipping Address</h3>
+               <table class="order-rable">
+                 <tbody><tr>
+                   <td>Street</td>
+                   <td>: 56/8 panthapath</td>
+                 </tr>
+                 <tr>
+                   <td>City</td>
+                   <td>: Dhaka</td>
+                 </tr>
+                 <tr>
+                   <td>Country</td>
+                   <td>: Bangladesh</td>
+                 </tr>
+                 <tr>
+                   <td>Postcode</td>
+                   <td>: 1205</td>
+                 </tr>
+                 </tbody></table>
+             </div>
+           </div>
+         </div>
+         <div class="order_details_table">
+           <h2>Order Details</h2>
+           <div class="table-responsive">
+             <table class="table">
+               <thead>
+               <tr>
+                 <th scope="col">Product</th>
+                 <th scope="col">Quantity</th>
+                 <th scope="col">Total</th>
+               </tr>
+               </thead>
+               <tbody id="order-products-bottom"></tbody>
+             </table>
+           </div>
+         </div>
+       </div>
+     </section>
+    <!-- Order_details end-->
     <!-- Products Details start-->
     <section class="section all-products-page"></section>
     <!-- Products Details end-->
@@ -689,6 +793,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
   <script src="build/js/products.js"></script>
   <script src="build/js/purchase.js"></script>
   <script src="build/js/checkout.js"></script>
+  <script src="build/js/order.js"></script>
   <script src="build/js/z-app.js"></script>
 </body>
 </html>
