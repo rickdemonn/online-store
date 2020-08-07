@@ -16,6 +16,7 @@ const deleteCardField = () => {
 }
 
 const createCardField = () => {
+	$('#card-field-parent').remove();
 	$('#checkout-form').append($('<div/>', {id: 'card-field-parent'}).addClass('col-md-6 form-group')
 			.append($('<input>', {
 				id: 'card-field',
