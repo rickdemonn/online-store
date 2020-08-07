@@ -53,7 +53,7 @@ const createBlockOfProducts = products => {
         //Dima - add button for job "checkout"
         $('<button/>', {type: 'button', text: 'Add to cart', 'data-id': id}).click(addProductToCart).appendTo(card);
         //
-
+        card.addEventListener('click', showProductDetail);
         parent.appendChild(card);
 
         // const card = $('<div/>', {

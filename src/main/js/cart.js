@@ -20,6 +20,7 @@ const changeCountOfCardIcon = count => {
 }
 
 const addProductToCart = event => {
+	event.stopPropagation()
 	const productId = event.currentTarget.dataset.id;
 
 	const cart = JSON.parse(localStorage.getItem('cart'));
