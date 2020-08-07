@@ -166,6 +166,7 @@ const deleteProductFromCart = event => {
 					if (productInCart.productId !== productInCartId && cart.length > 1) {
 						newCart.push(productInCart);
 						localStorage.setItem('cart', JSON.stringify(newCart));
+						changeCountOfCardIcon();
 					} else if (productInCart.productId === productInCartId && cart.length < 2) {
 						localStorage.setItem('cart', JSON.stringify(newCart));
 

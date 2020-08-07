@@ -55,14 +55,21 @@ const cartListener = () => {
 }
 
 const showModalCart = event => {
-	$('section').removeClass('active');
-	$('.cart_area').addClass('active');
+	$('.cart_area').addClass('modal-window');
+	document.querySelector('body .modal-shadow').style.display = 'block';
 	$('.table > tbody').html('');
 
 	event.preventDefault();
 
 	fillCart();
 
+	const closeButton = document.querySelector('.close-button');
+	closeButton.addEventListener('click', hideModalCart);
+}
+
+const hideModalCart = () => {
+	$('.cart_area').removeClass('modal-window');
+	document.querySelector('body .modal-shadow').style.display = 'none';
 }
 
 const fillCart = () => {
@@ -81,10 +88,29 @@ const fillCart = () => {
 					})
 				})
 				if(isEmptyCart) {
-					$('.table > tbody').append($('<div>', {text: 'Cart is Empty'}));
+					const row = document.createElement('tr');
+					const cell = document.createElement('td');
+					cell.className = 'empty-cart-message';
+					cell.textContent = 'Cart is Empty';
+					cell.setAttribute('colspan', '4');
+					row.appendChild(cell);
+					$('.table > tbody').append(row);
 				} else {
-					$('.table > tbody').append($('<div>', {id: 'btn-for-buy-form'}).addClass('custom-btn').click(checkOutListener)
-							.append($('<a/>', {href: '#', text: 'Checkout'}).addClass('primary-btn')));
+					const row = document.createElement('tr');
+                    const cell = document.createElement('td');
+                    cell.setAttribute('colspan', '4');
+                    cell.style.textAlign = 'center';
+
+                    const purchaseBtn = document.createElement('button');
+                    purchaseBtn.setAttribute('type', 'button');
+                    purchaseBtn.setAttribute('id', 'btn-for-buy-form');
+                    purchaseBtn.textContent = 'Checkout';
+                    purchaseBtn.className = 'button';
+                    purchaseBtn.addEventListener('click', checkOutListener);
+
+                    cell.append(purchaseBtn);
+                    row.appendChild(cell);
+					document.querySelector('.table > tbody').appendChild(row);
 				}
 			});
 }
@@ -101,25 +127,55 @@ const createBlockWithProductInCart = (product, count, productInCartNumber) => {
 	const imgWithBrand = $('<td/>').appendTo(parentTrOfProductInCart);
 	$(imgWithBrand).append($('<div/>').addClass('media')
 			.append($('<div/>').addClass('d-flex'))
-			.append($(`<img src="${img}">`).height(150).width(150))
+			.append($(`<img src="${img}">`).css({height: '150', width: '150', marginRight: '30px'}))
 			.append($('<div/>').addClass('media-body').append($('<p/>', {text: brand}))));
 
 	const priceBlock = $('<td/>').appendTo(parentTrOfProductInCart);
-	priceBlock.append($('<h5/>', {text: `$ ${price}`}).addClass('product-in-cart-price'));
+	priceBlock.append($('<h5/>', {text: `${price} UAH`}).addClass('product-in-cart-price'));
 
 	const countBlock = $('<td/>').appendTo(parentTrOfProductInCart);
 	countBlock.append($('<div/>').addClass('product_count')
+			.append($('<button/>', {type: 'button', text: '-'}).addClass('product_count').click(removeOneProductFromCart))
 			.append($('<div/>', {
 				'data-count': count,
 				text: count
 			}).addClass('product-in-cart-count').css('margin-top', '5px'))
-			.append($('<button/>', {type: 'button', text: '-'}).addClass('product_count').click(removeOneProductFromCart))
 			.append($('<button/>', {type: 'button', text: '+'}).addClass('product_count').click(addOneProductToCart)));
 
 	const totalPriceBlock = $('<td/>').appendTo(parentTrOfProductInCart);
-	totalPriceBlock.append($('<h5/>', {text: `$ ${price * count}`}).addClass('product-in-cart-price-total'));
+	totalPriceBlock.append($('<h5/>', {text: `${price * count} UAH`}).addClass('product-in-cart-price-total'));
+
+	const deleteProductBlock = $('<td/>').appendTo(parentTrOfProductInCart);
+	deleteProductBlock.append($('<div/>').addClass('product-delete').click(deleteProductFromCart));
 
 	$('.table > tbody').prepend(parentTrOfProductInCart);
+}
+
+const deleteProductFromCart = event => {
+	const productInCartId = event.target.parentElement.parentElement.dataset.id;
+	let productInNumber = event.target.parentElement.parentElement.dataset.productnum;
+
+	const productBlock = $(`#product-in-cart-num-${productInNumber}`);
+
+	let cart = JSON.parse(localStorage.getItem('cart'));
+
+	let newCart = [];
+
+	productBlock.remove();
+		cart.find(productInCart => {
+					if (productInCart.productId !== productInCartId && cart.length > 1) {
+						newCart.push(productInCart);
+						localStorage.setItem('cart', JSON.stringify(newCart));
+						changeCountOfCardIcon();
+					} else if (productInCart.productId === productInCartId && cart.length < 2) {
+						localStorage.setItem('cart', JSON.stringify(newCart));
+
+						$('#btn-for-buy-form').remove();
+						$('<div/>', {text: 'Cart is empty'}).appendTo($('.table > tbody'));
+						changeCountOfCardIcon(0);
+					}
+				}
+		);
 }
 
 const removeOneProductFromCart = event => {
@@ -132,28 +188,29 @@ const removeOneProductFromCart = event => {
 
 	let cart = JSON.parse(localStorage.getItem('cart'));
 
-	let newCart = [];
+	// let newCart = [];
 	if (count === 1) {
-		productBlock.remove();
-		cart.find(productInCart => {
-					if (productInCart.productId !== productInCartId && cart.length > 1) {
-						newCart.push(productInCart);
-						localStorage.setItem('cart', JSON.stringify(newCart));
-					} else if (productInCart.productId === productInCartId && cart.length < 2) {
-						localStorage.setItem('cart', JSON.stringify(newCart));
+		return
+		// productBlock.remove();
+		// cart.find(productInCart => {
+		// 			if (productInCart.productId !== productInCartId && cart.length > 1) {
+		// 				newCart.push(productInCart);
+		// 				localStorage.setItem('cart', JSON.stringify(newCart));
+		// 			} else if (productInCart.productId === productInCartId && cart.length < 2) {
+		// 				localStorage.setItem('cart', JSON.stringify(newCart));
 
-						$('#btn-for-buy-form').remove();
-						$('<div/>', {text: 'Cart is empty'}).appendTo($('.table > tbody'));
-						changeCountOfCardIcon(0);
-					}
-				}
-		);
+		// 				$('#btn-for-buy-form').remove();
+		// 				$('<div/>', {text: 'Cart is empty'}).appendTo($('.table > tbody'));
+		// 				changeCountOfCardIcon(0);
+		// 			}
+		// 		}
+		// );
 	} else {
 		cart.find(productInCart => {
 			if (productInCart.productId === productInCartId) {
 				productInCart.count = --count;
 				$(`#product-in-cart-num-${productInNumber} .product-in-cart-count`).text(`${count}`);
-				$(`#product-in-cart-num-${productInNumber} .product-in-cart-price-total`).text(`$ ${price * count}`);
+				$(`#product-in-cart-num-${productInNumber} .product-in-cart-price-total`).text(`${price * count} UAH`);
 				$(`#product-in-cart-num-${productInNumber}`).attr('data-count', count);
 				localStorage.setItem('cart', JSON.stringify(cart));
 			}
@@ -179,7 +236,7 @@ const addOneProductToCart = event => {
 	localStorage.setItem('cart', JSON.stringify(cart));
 
 	$(`#product-in-cart-num-${productInNumber} .product-in-cart-count`).text(`${productInCartCount}`);
-	$(`#product-in-cart-num-${productInNumber} .product-in-cart-price-total`).text(`$ ${price * productInCartCount}`);
+	$(`#product-in-cart-num-${productInNumber} .product-in-cart-price-total`).text(`${price * productInCartCount} UAH`);
 	$(`#product-in-cart-num-${productInNumber}`).attr('data-count', productInCartCount);
 	changeCountOfCardIcon();
 }
