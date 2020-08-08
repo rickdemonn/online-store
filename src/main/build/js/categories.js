@@ -70,6 +70,8 @@ const createBlockOfCategories = (response) => {
 
         listItem.addEventListener('click', () => {
             showProductsByCategory(listItem);
+            $('.filterForm').children().filter('checkbox').prop('checked', false); //что то неправильно
+            //$('#checkbox').prop('checked', false);
         })
 
         parent.appendChild(listItem);
