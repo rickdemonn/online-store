@@ -79,12 +79,14 @@ const createBlockOfCategories = (response) => {
         const label = document.createElement('label');
         label.setAttribute('for', `category-${id}`);
         label.textContent = name;
-        label.prepend(radio);
 
-        // listItem.appendChild(radio);
+        listItem.appendChild(radio);
         listItem.appendChild(label);
 
         radio.addEventListener('click', () => {
+            const filters = document.forms.brandFilters.querySelector('ul');
+            filters.innerHTML = '';
+
             showProductsByFilters(id);
             getBrandsFilterByCategory(id);
            // $('.common-filter form').children().filter('input').prop('checked', false)

@@ -3,7 +3,7 @@
     "id": "1",
     "categoryId": "1",
     "brand": "Apple",
-    "model": "Iphone XR",
+    "model": "iPhone XR",
     "price": 30000,
     "img": "build/images/smart-phones/iphonexr.jpg"
   },
@@ -14,6 +14,38 @@
     "model": "Galaxy x10",
     "price": 20000,
     "img": "build/images/smart-phones/galaxy10.jpg"
+  },
+  {
+    "id": "11",
+    "categoryId": "1",
+    "brand": "Apple",
+    "model": "iPhone SE",
+    "price": 17000,
+    "img": "build/images/smart-phones/iphone_se.png"
+  },
+  {
+    "id": "12",
+    "categoryId": "1",
+    "brand": "Apple",
+    "model": "iPhone 11 Pro Max",
+    "price": 40000,
+    "img": "build/images/smart-phones/iphone_11_pro_max.jpg"
+  },
+  {
+    "id": "13",
+    "categoryId": "1",
+    "brand": "Motorola",
+    "model": "RAZR 2019 XT2000-2",
+    "price": 50000,
+    "img": "build/images/smart-phones/motorola_razr.jpg"
+  },
+  {
+    "id": "14",
+    "categoryId": "1",
+    "brand": "Samsung",
+    "model": "Galaxy Z Flip",
+    "price": 42000,
+    "img": "build/images/smart-phones/samsung_galaxy_z_flip.jpg"
   },
   {
     "id": "3",
@@ -32,6 +64,30 @@
     "img": "build/images/laptops/dellg315.jpg"
   },
   {
+    "id": "15",
+    "categoryId": "2",
+    "brand": "Apple",
+    "model": "MacBook Pro",
+    "price": 55000,
+    "img": "build/images/laptops/apple_mac_pro.jpg"
+  },
+  {
+    "id": "16",
+    "categoryId": "2",
+    "brand": "Lenovo",
+    "model": "IdeaPad",
+    "price": 7300,
+    "img": "build/images/laptops/lenovo_ideapad.jpg"
+  },
+  {
+    "id": "17",
+    "categoryId": "2",
+    "brand": "Lenovo",
+    "model": "ThinkBook",
+    "price": 27500,
+    "img": "build/images/laptops/lenovo_thinkbook.jpg"
+  },
+  {
     "id": "5",
     "categoryId": "3",
     "brand": "Ford",
@@ -46,6 +102,14 @@
     "model": "R1",
     "price": 200000,
     "img": "build/images/auto/r1.jpg"
+  },
+  {
+    "id": "18",
+    "categoryId": "3",
+    "brand": "Renault",
+    "model": "Koleos",
+    "price": 275000,
+    "img": "build/images/auto/renault_koleos.webp"
   },
   {
     "id": "7",
@@ -64,6 +128,30 @@
     "img": "build/images/books/white-fang.jpg"
   },
   {
+    "id": "19",
+    "categoryId": "4",
+    "brand": "Morgan Robertson",
+    "model": "The Wreck of the Titan",
+    "price": 65,
+    "img": "build/images/books/The_Wreck_of_the_Titan.jpg"
+  },
+  {
+    "id": "20",
+    "categoryId": "4",
+    "brand": "William Shakespeare",
+    "model": "The Sonnets",
+    "price": 65,
+    "img": "build/images/books/sonnets_by_shakespeare.jpg"
+  },
+  {
+    "id": "21",
+    "categoryId": "4",
+    "brand": "J.K. Rowling",
+    "model": "Harry Potter and the Philosopher's Stone",
+    "price": 180,
+    "img": "build/images/books/harry_potter.jpg"
+  },
+  {
     "id": "9",
     "categoryId": "5",
     "brand": "Lego",
@@ -78,5 +166,29 @@
     "model": "Sponge Bob",
     "price": 700,
     "img": "build/images/toys/sponge-bob.jpg"
+  },
+  {
+    "id": "22",
+    "categoryId": "5",
+    "brand": "Spy X",
+    "model": "Walkie Talkie AM10526",
+    "price": 500,
+    "img": "build/images/toys/spy_walkie_talkie.jpg"
+  },
+  {
+    "id": "23",
+    "categoryId": "5",
+    "brand": "Sulong Toys",
+    "model": "Off-Road Crawler",
+    "price": 1300,
+    "img": "build/images/toys/sulong_toys.jpg"
+  },
+  {
+    "id": "24",
+    "categoryId": "5",
+    "brand": "Hasbro",
+    "model": "Furreal Friends Kitten",
+    "price": 1085,
+    "img": "build/images/toys/hasbro_cat.jpg"
   }
 ]
