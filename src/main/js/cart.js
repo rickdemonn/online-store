@@ -107,7 +107,9 @@ const fillCart = () => {
                     purchaseBtn.setAttribute('id', 'btn-for-buy-form');
                     purchaseBtn.textContent = 'Checkout';
                     purchaseBtn.className = 'button';
-                    purchaseBtn.addEventListener('click', checkOutListener);
+                    purchaseBtn.addEventListener('click', function() {
+						window.location.hash = '#checkout';
+					});
 
                     cell.append(purchaseBtn);
                     row.appendChild(cell);

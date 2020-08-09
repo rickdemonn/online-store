@@ -1,6 +1,12 @@
 const categoriesStartListener = () => {
-    $('#category-btn').click(createCategories);
-    $('.button-hero').click(createCategories);
+    $('#category-btn').click(function(e) {
+        e.preventDefault();
+        window.location.hash = '#categories';
+    });
+    $('.button-hero').click(function(e) {
+        e.preventDefault();
+        window.location.hash = '#categories';
+    });
 };
 
 // const createCategories = event => {
@@ -24,7 +30,7 @@ const categoriesStartListener = () => {
 // };
 
 const createCategories = event => {
-    event.preventDefault();
+    // event.preventDefault();
 
     $('section').removeClass('active');
     $('.category-page').addClass('active');

@@ -3,3 +3,5 @@ categoriesStartListener();
 initLocalStorage();
 cartListener();
 
+window.addEventListener('hashchange', initRouting);
+
