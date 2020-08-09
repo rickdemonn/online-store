@@ -1,5 +1,0 @@
-categoriesStartListener();
-// productsStartListener();
-initLocalStorage();
-cartListener();
-
