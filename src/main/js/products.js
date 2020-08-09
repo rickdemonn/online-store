@@ -40,11 +40,12 @@ const createBlockOfProducts = products => {
         textContainer.classList.add('card-body', 'text-center');
 
         const productName = document.createElement('h4');
-        productName.textContent = `${model}, ${price} UAH`;
+        productName.className = 'brand-and-model';
+        productName.textContent = `${brand} ${model}`;
 
         const productDescription = document.createElement('p');
         productDescription.className = 'card-product__price';
-        productDescription.textContent = brand;
+        productDescription.textContent = `${price} UAH`;
 
         card.appendChild(image);
         textContainer.appendChild(productName);
