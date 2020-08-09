@@ -271,7 +271,7 @@
     <section class="section all-products-page"></section>
     <!-- Products Details end-->
     <!-- Category Page start -->
-    <section id="category" class="section category-page section-margin--small mb-5">
+    <section class="section category-page section-margin--small mb-5">
       <div class="container">
         <div class="row">
           <div class="col-xl-3 col-lg-4 col-md-5">
@@ -289,7 +289,11 @@
                 <div class="head">Brands</div>
                 <form name="filterForm">
                 </form>
-                <form action="#">
+                <form name="brandFilters">
+                  <ul></ul>
+                  <button id="filters-apply-button" class="button" type="button">Apply filters</button>
+                </form>
+                <!-- <form>
                   <ul>
                     <li class="filter-list"><input class="pixel-radio" type="radio" id="apple" name="brand"><label for="apple">Apple<span>(29)</span></label></li>
                     <li class="filter-list"><input class="pixel-radio" type="radio" id="asus" name="brand"><label for="asus">Asus<span>(29)</span></label></li>
@@ -297,9 +301,9 @@
                     <li class="filter-list"><input class="pixel-radio" type="radio" id="micromax" name="brand"><label for="micromax">Micromax<span>(19)</span></label></li>
                     <li class="filter-list"><input class="pixel-radio" type="radio" id="samsung" name="brand"><label for="samsung">Samsung<span>(19)</span></label></li>
                   </ul>
-                </form>
+                </form> -->
               </div>
-              <div class="common-filter">
+              <!-- <div class="common-filter">
                 <div class="head">Color</div>
                 <form action="#">
                   <ul>
@@ -312,8 +316,8 @@
                     <li class="filter-list"><input class="pixel-radio" type="radio" id="spacegrey" name="color"><label for="spacegrey">Spacegrey<span>(19)</span></label></li>
                   </ul>
                 </form>
-              </div>
-              <div class="common-filter">
+              </div> -->
+              <!-- <div class="common-filter">
                 <div class="head">Price</div>
                 <div class="price-range-area">
                   <div id="price-range"></div>
@@ -326,7 +330,7 @@
                     <div id="upper-value"></div>
                   </div>
                 </div>
-              </div>
+              </div> -->
             </div>
           </div>
           <div class="col-xl-9 col-lg-8 col-md-7">
@@ -723,7 +727,7 @@
 							<h4 class="footer_title">Quick Links</h4>
 							<ul class="list">
 								<li><a href="#">Home</a></li>
-								<li><a href="#">Shop</a></li>
+								<li><a id="category-footer" href="#">Shop</a></li>
 							</ul>
 						</div>
 					</div>
@@ -791,7 +795,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
   <script src="build/js/global-variables.js"></script>
   <script src="build/js/cart.js"></script>
   <script src="build/js/categories.js"></script>
-  <script src="build/js/filter.js"></script>
+  <script src="build/js/filter-new.js"></script>
   <script src="build/js/products.js"></script>
   <script src="build/js/show-product-detail.js"></script>
   <script src="build/js/purchase.js"></script>

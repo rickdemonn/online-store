@@ -84,7 +84,8 @@
     
     .pixel-radio{
       background: transparent !important;
-    }
+	}
+	
 	}
 	.main-nav-list {
 		a {
@@ -118,6 +119,12 @@
 //--------- Start Product Filter ---------//
 .sidebar-filter {
 	margin-top: 30px;
+
+	ul {
+		list-style-type: none;
+		padding-left: 0;
+	}
+
 	.top-filter-head {
     font-family: 'Oswald', sans-serif;
 		line-height: 50px;
@@ -261,6 +268,10 @@
 .pixel-radio::after {
 	border-radius: 50%;
 }
+
+.pixel-checkbox {
+	border-radius: 5px;
+}
 //--------- End Product Filter ---------//
 
 
@@ -394,4 +405,15 @@
 	// 		width: 100%;
 	// 	}
 	// }
+}
+
+.products-block {
+    width: 100%;
+	text-align: center;
+    padding: 50px;
+    font-size: 24px;
+}
+
+#filters-apply-button {
+	width: 100%;
 }
