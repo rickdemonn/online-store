@@ -5,16 +5,16 @@ function initRouting() {
             $('.home-page').addClass('active');
             break;
         case '#categories':
-            history.pushState('Categories', 'Categories', location.href);
             createCategories();
             break;
         case '#product-details':
+            showProductDetail();
             break;
         case '#checkout':
-            history.pushState('Checkout', 'Checkout', location.href);
             checkOutListener();
             break;
         case '#order-confirmation':
+            productWasSuccessfullyPurchased();
             break;
     }
 }

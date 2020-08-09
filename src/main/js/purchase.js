@@ -1,9 +1,10 @@
-const startOfThePurchaseProcess = () => {
+const startOfThePurchaseProcess = (e) => {
+	e.preventDefault();
 	const form = $('#checkout-form');
 	const isMistakeInForm = validateForm(form);
 
 	if(!isMistakeInForm) {
-		productWasSuccessfullyPurchased();
+		window.location.hash = '#order-confirmation';
 	}
 }
 
