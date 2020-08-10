@@ -40,6 +40,7 @@ const createCategories = event => {
     $('.category-page').addClass('active');
 
     const parent = document.querySelector('.category-list .row');
+    parent.innerHTML = '';
 
     const productsBlock = document.createElement('div');
     productsBlock.textContent = "Choose a category you're interested in";
