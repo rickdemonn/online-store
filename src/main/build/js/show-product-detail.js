@@ -1,6 +1,7 @@
 const showProductDetail = () => {
 	$('section').removeClass('active');
 	$('.product-page').addClass('active');
+	const addToCard = $('#add-to-cart-pd');
 
 	const products = fetch(productsUrl)
 			.then(res => res.json());
@@ -9,21 +10,23 @@ const showProductDetail = () => {
 			.then(res => res.json());
 
 	Promise.all([products, comments]).then(([products, comments]) => {
+		addToCard.unbind('click');
 		products.forEach(product => {
 			if (product.id === productIdForProductDetail) {
 				createProductInfo(product);
 			}
 		});
+
 		$('.review_list').children().remove();
+
 		comments.forEach(comment => {
 			if (comment.productId === productIdForProductDetail) {
 				createProductComments(comment.comments)
 			}
 		})
+
+		addToCard.click(prepareAddProductToCart);
 	});
-
-
-
 }
 
 const createProductInfo = product => {
@@ -35,8 +38,12 @@ const createProductInfo = product => {
 	$('#brand-model').text(`${brand} ${model}`);
 	$('#product-info-price').text(`${price} UAH`);
 	$('#product-description').text(description);
+	$('#add-to-cart-pd').attr('data-id', id);
+}
 
-	$('#add-to-cart-pd').attr('data-id', id).click(addProductToCart);
+const prepareAddProductToCart = event => {
+	event.preventDefault();
+	addProductToCart(event);
 }
 
 const createProductComments = comments => {
@@ -53,5 +60,4 @@ const createProductComments = comments => {
 				.append($('<p>', {text: comment}))
 				.appendTo(commentsParent)
 	})
-
 }
