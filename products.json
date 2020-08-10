@@ -5,7 +5,8 @@
     "brand": "Apple",
     "model": "iPhone XR",
     "price": 30000,
-    "img": "build/images/smart-phones/iphonexr.jpg"
+    "img": "build/images/smart-phones/iphonexr.jpg",
+    "description": "The iPhone XR display has rounded corners that follow a beautiful curved design, and these corners are within a standard rectangle"
   },
   {
     "id": "2",
@@ -13,7 +14,8 @@
     "brand": "Samsung",
     "model": "Galaxy x10",
     "price": 20000,
-    "img": "build/images/smart-phones/galaxy10.jpg"
+    "img": "build/images/smart-phones/galaxy10.jpg",
+    "description": "Samsung Galaxy S10 Android smartphone. Announced Feb 2019. Features 6.1″ Dynamic AMOLED display, Exynos 9820 chipset, 3400 mAh battery, 512 GB"
   },
   {
     "id": "11",
@@ -21,7 +23,8 @@
     "brand": "Apple",
     "model": "iPhone SE",
     "price": 17000,
-    "img": "build/images/smart-phones/iphone_se.png"
+    "img": "build/images/smart-phones/iphone_se.png",
+    "description": "iPhone SE Tech Specs · Finish Black, White, (PRODUCT)RED · Capacity 64GB · Size and Weight Width: · Display iPhone SE · Chip A13 Bionic chip"
   },
   {
     "id": "12",
@@ -29,7 +32,8 @@
     "brand": "Apple",
     "model": "iPhone 11 Pro Max",
     "price": 40000,
-    "img": "build/images/smart-phones/iphone_11_pro_max.jpg"
+    "img": "build/images/smart-phones/iphone_11_pro_max.jpg",
+    "description": "Apple on September 10, 2019, unveiled its latest flagship iPhones, the iPhone 11 Pro and the iPhone 11 Pro Max, which are being sold alongside the more affordable and less feature rich iPhone 11. Apple says that the 5.8-inch and 6.5-inch iPhone 11 Pro and iPhone 11 Pro Max have a new Pro moniker because the two devices are designed for users who want the very best smartphone that's available."
   },
   {
     "id": "13",
@@ -37,7 +41,8 @@
     "brand": "Motorola",
     "model": "RAZR 2019 XT2000-2",
     "price": 50000,
-    "img": "build/images/smart-phones/motorola_razr.jpg"
+    "img": "build/images/smart-phones/motorola_razr.jpg",
+    "description": "The Motorola Razr (stylized Motorola razr) is an Android foldable smartphone produced by Motorola Mobility."
   },
   {
     "id": "14",
@@ -45,7 +50,8 @@
     "brand": "Samsung",
     "model": "Galaxy Z Flip",
     "price": 42000,
-    "img": "build/images/smart-phones/samsung_galaxy_z_flip.jpg"
+    "img": "build/images/smart-phones/samsung_galaxy_z_flip.jpg",
+    "description": "he statement-making smartphone gets upgraded with lightning-fast 5G speeds, so you can share, play and do more, faster."
   },
   {
     "id": "3",
@@ -53,7 +59,8 @@
     "brand": "Apple",
     "model": "Mac Book Air",
     "price": 35000,
-    "img": "build/images/laptops/macbookair.jpg"
+    "img": "build/images/laptops/macbookair.jpg",
+    "description": "The MacBook Air is a line of laptop computers developed and manufactured by Apple Inc. It consists of a full-size keyboard, a machined aluminum case"
   },
   {
     "id": "4",
@@ -61,7 +68,8 @@
     "brand": "Dell",
     "model": "G3 15",
     "price": 26000,
-    "img": "build/images/laptops/dellg315.jpg"
+    "img": "build/images/laptops/dellg315.jpg",
+    "description": "Despite being an entry-level gaming laptop, the G3 15 packs enough heat to blow through Shadow of War, handle 30 Google Chrome tabs and run a Twitch stream in the background. It has a 2.3-GHz Intel Core i5-8300H processor, 8GB of RAM, a 128GB SSD, and a 1TB 5,400-rpm HDD."
   },
   {
     "id": "15",
@@ -69,7 +77,8 @@
     "brand": "Apple",
     "model": "MacBook Pro",
     "price": 55000,
-    "img": "build/images/laptops/apple_mac_pro.jpg"
+    "img": "build/images/laptops/apple_mac_pro.jpg",
+    "description": "The 13-inch MacBook Pro has a 2.5- or 2.9-GHz chip, while the one on the 15-inch MacBook Pro is a more powerful but slower 2.3 GHz quad-core Intel Core i7"
   },
   {
     "id": "16",
@@ -77,7 +86,8 @@
     "brand": "Lenovo",
     "model": "IdeaPad",
     "price": 7300,
-    "img": "build/images/laptops/lenovo_ideapad.jpg"
+    "img": "build/images/laptops/lenovo_ideapad.jpg",
+    "description": "Laptops for any budget. Whether you are looking to stream your favorite movies, play your favorite games or get down to work, IdeaPad has a laptop for you"
   },
   {
     "id": "17",
@@ -85,7 +95,8 @@
     "brand": "Lenovo",
     "model": "ThinkBook",
     "price": 27500,
-    "img": "build/images/laptops/lenovo_thinkbook.jpg"
+    "img": "build/images/laptops/lenovo_thinkbook.jpg",
+    "description": "Notebookcheck.com reviews the Lenovo ThinkBook 15, an office laptop powered by a 10th generation Intel Core i5 processor, 16 GB of RAM"
   },
   {
     "id": "5",
@@ -93,7 +104,8 @@
     "brand": "Ford",
     "model": "Mustang",
     "price": 300000,
-    "img": "build/images/auto/ford-mustang.jpg"
+    "img": "build/images/auto/ford-mustang.jpg",
+    "description": "The Ford Mustang is a series of American automobiles manufactured by Ford. In continuous production since 1964, the Mustang is currently the longest-produced Ford car nameplate. Currently in its sixth generation, it is the fifth-best selling Ford car nameplate"
   },
   {
     "id": "6",
@@ -101,7 +113,8 @@
     "brand": "Yamaha",
     "model": "R1",
     "price": 200000,
-    "img": "build/images/auto/r1.jpg"
+    "img": "build/images/auto/r1.jpg",
+    "description": "Yamaha launched the YZF-R1 after redesigning the Genesis engine to create a more compact engine by raising the gearbox input shaft and allowing the gearbox output shaft to be placed beneath it"
   },
   {
     "id": "18",
@@ -109,7 +122,8 @@
     "brand": "Renault",
     "model": "Koleos",
     "price": 275000,
-    "img": "build/images/auto/renault_koleos.webp"
+    "img": "build/images/auto/renault_koleos.webp",
+    "description": "The Renault Koleos is a compact crossover SUV which was first presented as a concept car at the Geneva Motor Show in 2000, and then again in 2006 at the Mondial de l'Automobile in Paris, by the French manufacturer Renault."
   },
   {
     "id": "7",
@@ -117,7 +131,8 @@
     "brand": "Lev Tolstoy",
     "model": "War and Peace",
     "price": 137,
-    "img": "build/images/books/war.jpg"
+    "img": "build/images/books/war.jpg",
+    "description": "The novel chronicles the French invasion of Russia and the impact of the Napoleonic era on Tsarist society through the stories of five Russian aristocratic families"
   },
   {
     "id": "8",
@@ -125,7 +140,8 @@
     "brand": "Jack London",
     "model": "White fang",
     "price": 150,
-    "img": "build/images/books/white-fang.jpg"
+    "img": "build/images/books/white-fang.jpg",
+    "description": "White Fang is part dog and part wolf, and the lone survivor of his family. In his lonely world, he soon learns to follow the harsh law of the North--kill or be killed. But nothing in White Fang's life can prepare him for the cruel owner who turns him into a vicious killer"
   },
   {
     "id": "19",
@@ -133,7 +149,8 @@
     "brand": "Morgan Robertson",
     "model": "The Wreck of the Titan",
     "price": 65,
-    "img": "build/images/books/The_Wreck_of_the_Titan.jpg"
+    "img": "build/images/books/The_Wreck_of_the_Titan.jpg",
+    "description": "The Wreck of the Titan: Or, Futility is a novella written by Morgan Robertson and published as Futility in 1898, and revised as The Wreck of the Titan in 1912. It features a fictional British ocean liner Titan that sinks in the North Atlantic after striking an iceberg"
   },
   {
     "id": "20",
@@ -141,7 +158,8 @@
     "brand": "William Shakespeare",
     "model": "The Sonnets",
     "price": 65,
-    "img": "build/images/books/sonnets_by_shakespeare.jpg"
+    "img": "build/images/books/sonnets_by_shakespeare.jpg",
+    "description": "Shakespeare's sonnets is the title of a collection of 154 sonnets by William Shakespeare, which covers themes such as the passage of time, love, beauty and mortality. The first 126 sonnets are addressed to a young man; the last 28 to a woman."
   },
   {
     "id": "21",
@@ -149,7 +167,8 @@
     "brand": "J.K. Rowling",
     "model": "Harry Potter and the Philosopher's Stone",
     "price": 180,
-    "img": "build/images/books/harry_potter.jpg"
+    "img": "build/images/books/harry_potter.jpg",
+    "description": "The book is about a young boy, Harry Potter, and his adventures in Hogwarts (a wizarding school) after discovering he is a wizard by a very diverse, funny, warm and very big, Hagrid, the groundskeeper at Hogwarts. We're introduced to the rest of the trio, Hermione and Ron in Hogwarts."
   },
   {
     "id": "9",
@@ -157,7 +176,8 @@
     "brand": "Lego",
     "model": "City",
     "price": 500,
-    "img": "build/images/toys/lego-city.jpg"
+    "img": "build/images/toys/lego-city.jpg",
+    "description": "In LEGO® CITY Undercover, play as Chase McCain, a police officer who's been tasked with going undercover to hunt down the notorious — and recently escaped — criminal Rex Fury and putting an end to his city-wide crime wave."
   },
   {
     "id": "10",
@@ -165,7 +185,8 @@
     "brand": "Nikelodeon",
     "model": "Sponge Bob",
     "price": 700,
-    "img": "build/images/toys/sponge-bob.jpg"
+    "img": "build/images/toys/sponge-bob.jpg",
+    "description": "SpongeBob is a good-natured, naive, and enthusiastic sea sponge. He resides in the undersea city of Bikini Bottom with other anthropomorphic aquatic creatures. He works as a fry cook at a local fast food restaurant, the Krusty Krab, to which he is obsessively attached, showing devotion to it above other restaurants."
   },
   {
     "id": "22",
@@ -173,7 +194,8 @@
     "brand": "Spy X",
     "model": "Walkie Talkie AM10526",
     "price": 500,
-    "img": "build/images/toys/spy_walkie_talkie.jpg"
+    "img": "build/images/toys/spy_walkie_talkie.jpg",
+    "description": "A walkie-talkie, more formally known as a handheld transceiver (HT), is a hand-held, portable, two-way radio transceiver. Its development during the Second World War has been variously credited to Donald Hings, radio engineer Alfred J. Gross, Henryk Magnuski and engineering teams at Motorola."
   },
   {
     "id": "23",
@@ -181,7 +203,8 @@
     "brand": "Sulong Toys",
     "model": "Off-Road Crawler",
     "price": 1300,
-    "img": "build/images/toys/sulong_toys.jpg"
+    "img": "build/images/toys/sulong_toys.jpg",
+    "description": "Rock crawling is an extreme form of off road driving using vehicles anywhere from stock to highly modified to overcome obstacles. In rock crawling, drivers drive highly modified four-wheel-drive vehicles such as trucks, Jeeps, and buggies over very harsh terrain."
   },
   {
     "id": "24",
@@ -189,6 +212,7 @@
     "brand": "Hasbro",
     "model": "Furreal Friends Kitten",
     "price": 1085,
-    "img": "build/images/toys/hasbro_cat.jpg"
+    "img": "build/images/toys/hasbro_cat.jpg",
+    "description": "FurReal Friends offers pet play with lifelike pets that can't wait to play, make you laugh out loud and love you back!"
   }
 ]
