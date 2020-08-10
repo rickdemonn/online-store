@@ -25,9 +25,22 @@ const showProductDetail = () => {
 			}
 		})
 
+		checkCommentsFromLocalStorage(productIdForProductDetail);
+
 		addToCard.click(prepareAddProductToCart);
 		$('#add-a-review').click(addReview);
 	});
+}
+
+const checkCommentsFromLocalStorage = productId => {
+	const commentsFromLocal = JSON.parse(localStorage.getItem('comments'));
+	if (commentsFromLocal) {
+		commentsFromLocal.forEach(comment => {
+			if (productId === comment.productId) {
+				createProductComments(comment.comments);
+			}
+		})
+	}
 }
 
 const createProductInfo = product => {
@@ -68,14 +81,28 @@ const addReview = () => {
 	const comment = $('#textarea');
 
 	if (name.val() && comment.val()) {
-		name.parent().removeClass('error')
-		comment.parent().removeClass('error')
+		name.parent().removeClass('error');
+		comment.parent().removeClass('error');
+
+		const productId = $('#add-to-cart-pd').attr('data-id');
+
+		const userComment = [{id: "1", user: name.val(), userImg: 'img/product/review-3.png', comment: comment.val()}];
+		const userCommentsFromLocalStorage = JSON.parse(localStorage.getItem('comments'));
+
+		const commentToLocal = [{id: rand(1, 1000), productId: productId, comments: userComment}]
+		if(!userCommentsFromLocalStorage) {
+			localStorage.setItem('comments', JSON.stringify(commentToLocal));
+		} else {
+			userCommentsFromLocalStorage.push(commentToLocal[0]);
+			localStorage.setItem('comments', JSON.stringify(userCommentsFromLocalStorage));
+		}
+
+
 		createProductComments([{user: name.val(), comment: comment.val()}]);
-	}
-	if (!name.val()) {
-		name.parent().addClass('error');
-	}
-	if (!comment.val()) {
+		name.val('');
+		comment.val('')
+	} else {
 		comment.parent().addClass('error');
+		name.parent().addClass('error');
 	}
 }
