@@ -8,6 +8,10 @@
 	display: flex;
     flex-wrap: wrap;
 	justify-content: center;
+
+	&__container {
+		max-height: 720px;
+	}
 	
 	.table{
     th,td{

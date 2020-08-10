@@ -57,7 +57,7 @@
        <button type="button" class="close-button"></button>
        <div class="container">
          <div class="cart_inner">
-           <div class="table-responsive">
+           <div class="table-responsive cart_inner__container">
              <table class="table">
                <thead>
                <tr>
@@ -123,12 +123,10 @@
              <div class="col-lg-4">
                <div class="order_box">
                  <h2>Your Order</h2>
-                 <ul class="list" id="order-products">
-                   <li><a href="#"><h4>Product <span>Total</span></h4></a></li>
-                 </ul>
-                 <ul class="list list_2">
-                   <li><a>Total <span id="total-in-order"></span></a></li>
-                 </ul>
+                 <div class="order-products" id="order-products">
+                   <div class="checkout-products checkout-products__title"><span>Product</span> <span>Total</span></div>
+                 </div>
+                   <div class="checkout-products__total"><span>TOTAL</span> <span id="total-in-order"></span></div>
                  <div class="payment_item">
                    <div class="radion_btn">
                      <input type="radio" id="f-option5" name="selector" checked="checked">

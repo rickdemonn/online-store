@@ -536,4 +536,29 @@ background: #C5322D;
   font-size: 12px;
   color: $primary-color;
 }
-/*=================== checkout page css end ====================*/
+
+.checkout-products {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	border-bottom: 1px dashed #d6d2d2;
+	padding: 5px 0;
+
+	&__title {
+		text-transform: uppercase;
+		font-weight: 600;
+	}
+
+	&__total {
+		display: flex;
+		justify-content: space-between;
+		font-weight: 600;
+		margin-top: 10px;
+		margin-bottom: 15px;
+	}
+}
+
+.checkout-product-name {
+	max-width: 50%;
+	font-weight: 400;
+}
