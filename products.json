@@ -57,7 +57,7 @@
     "id": "3",
     "categoryId": "2",
     "brand": "Apple",
-    "model": "Mac Book Air",
+    "model": "MacBook Air",
     "price": 35000,
     "img": "build/images/laptops/macbookair.jpg",
     "description": "The MacBook Air is a line of laptop computers developed and manufactured by Apple Inc. It consists of a full-size keyboard, a machined aluminum case"
