@@ -89,6 +89,10 @@ const fillCart = () => {
 				})
 			})
 			if (isEmptyCart) {
+				if (document.getElementById('btn-for-buy-form')) {
+					document.getElementById('btn-for-buy-form').remove();
+				}
+
 				const row = document.createElement('tr');
 				const cell = document.createElement('td');
 				cell.className = 'empty-cart-message';
