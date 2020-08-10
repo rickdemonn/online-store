@@ -337,4 +337,18 @@
 #btn-for-buy-form {
     cursor: pointer;
 }
+
+.cart-product-image {
+	max-width: 150px;
+	max-height: 150px;
+
+	&-container {
+		width: 150px;
+		height: 150px;
+		margin-right: 30px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+}
 /*=================== cart area css end ====================*/

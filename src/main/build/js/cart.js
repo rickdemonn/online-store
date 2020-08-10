@@ -129,9 +129,9 @@ const createBlockWithProductInCart = (product, count, productInCartNumber) => {
 	});
 	const imgWithBrand = $('<td/>').appendTo(parentTrOfProductInCart);
 	$(imgWithBrand).append($('<div/>').addClass('media')
-			.append($('<div/>').addClass('d-flex'))
-			.append($(`<img src="${img}">`).css({height: '150', width: '150', marginRight: '30px'}))
-			.append($('<div/>').addClass('media-body').append($('<p/>', {text: brand}))));
+			.append($('<div/>').addClass('cart-product-image-container')
+			.append($(`<img src="${img}">`).addClass('cart-product-image')))
+			.append($('<div/>').addClass('media-body').append($('<p/>', {text: `${brand} ${model}`}))));
 
 	const priceBlock = $('<td/>').appendTo(parentTrOfProductInCart);
 	priceBlock.append($('<h5/>', {text: `${price} UAH`}).addClass('product-in-cart-price'));
