@@ -5,6 +5,10 @@
 	border-radius: 5px;
 }
 .cart_inner{
+	display: flex;
+    flex-wrap: wrap;
+	justify-content: center;
+	
 	.table{
     th,td{
       padding: .75rem 1.5rem;
@@ -351,4 +355,3 @@
 		align-items: center;
 	}
 }
-/*=================== cart area css end ====================*/
