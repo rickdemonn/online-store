@@ -1,0 +1,44 @@
+[
+    {
+        "id": "1",
+        "productId": "1",
+        "comments": [
+            {
+                "id": "1",
+                "user": "John Doe",
+                "userImg": "img/product/review-1.png",
+                "comment": "The S10+ is a good phone but my XR, came out in Oct. 2018 and will have updates in 2023. By that time your S10+ will be dead. I believe you will be stuck on Android 11."
+            },
+            {
+                "id": "2",
+                "user": "Jack Daniels",
+                "userImg": "img/product/review-2.png",
+                "comment": "I purchased new Xr but I am facing Multi touch problem in my xr while playing PUBG is it hardware problem or other plz help me"
+            }
+        ]
+    },
+    {
+        "id": "2",
+        "productId": "2",
+        "comments": [
+            {
+                "id": "1",
+                "user": "John Doe",
+                "userImg": "img/product/review-1.png",
+                "comment": "Very good phone and bla bla bla"
+            }
+        ]
+    },
+    {
+        "id": "3",
+        "productId": "3",
+        "comments": [
+            {
+                "id": "1",
+                "user": "John Doe",
+                "userImg": "img/product/review-1.png",
+                "comment": "Very good phone and bla bla bla"
+            }
+        ]
+    }
+]

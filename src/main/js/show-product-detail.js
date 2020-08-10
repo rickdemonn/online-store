@@ -2,15 +2,28 @@ const showProductDetail = () => {
 	$('section').removeClass('active');
 	$('.product-page').addClass('active');
 
-	fetch(productsUrl)
-			.then(res => res.json())
-			.then(res => {
-				res.forEach(product => {
-					if(product.id === productIdForProductDetail) {
-						createProductInfo(product);
-					}
-				})
-			})
+	const products = fetch(productsUrl)
+			.then(res => res.json());
+
+	const comments = fetch(commentsUrl)
+			.then(res => res.json());
+
+	Promise.all([products, comments]).then(([products, comments]) => {
+		products.forEach(product => {
+			if (product.id === productIdForProductDetail) {
+				createProductInfo(product);
+			}
+		});
+		$('.review_list').children().remove();
+		comments.forEach(comment => {
+			if (comment.productId === productIdForProductDetail) {
+				createProductComments(comment.comments)
+			}
+		})
+	});
+
+
+
 }
 
 const createProductInfo = product => {
@@ -24,4 +37,21 @@ const createProductInfo = product => {
 	$('#product-description').text(description);
 
 	$('#add-to-cart-pd').attr('data-id', id).click(addProductToCart);
+}
+
+const createProductComments = comments => {
+	const commentsParent = $('.review_list');
+	comments.forEach(commentItem => {
+		const {user, userImg, comment} = commentItem;
+		$('<div/>').addClass('review_item').append($('<div/>').addClass('media')
+				.append($('<div/>').addClass('d-flex')
+						.append($('<img/>', {'src': userImg}))
+				)
+				.append($('<div/>').addClass('d-flex')
+						.append($('<h4/>', {text: user})))
+		)
+				.append($('<p>', {text: comment}))
+				.appendTo(commentsParent)
+	})
+
 }
