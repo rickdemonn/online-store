@@ -26,6 +26,7 @@ const showProductDetail = () => {
 		})
 
 		addToCard.click(prepareAddProductToCart);
+		$('#add-a-review').click(addReview);
 	});
 }
 
@@ -52,7 +53,7 @@ const createProductComments = comments => {
 		const {user, userImg, comment} = commentItem;
 		$('<div/>').addClass('review_item').append($('<div/>').addClass('media')
 				.append($('<div/>').addClass('d-flex')
-						.append($('<img/>', {'src': userImg}))
+						.append($('<img/>', {'src': userImg || 'img/product/review-3.png'}))
 				)
 				.append($('<div/>').addClass('d-flex')
 						.append($('<h4/>', {text: user})))
@@ -60,4 +61,21 @@ const createProductComments = comments => {
 				.append($('<p>', {text: comment}))
 				.appendTo(commentsParent)
 	})
+}
+
+const addReview = () => {
+	const name = $('#name-to-review');
+	const comment = $('#textarea');
+
+	if (name.val() && comment.val()) {
+		name.parent().removeClass('error')
+		comment.parent().removeClass('error')
+		createProductComments([{user: name.val(), comment: comment.val()}]);
+	}
+	if (!name.val()) {
+		name.parent().addClass('error');
+	}
+	if (!comment.val()) {
+		comment.parent().addClass('error');
+	}
 }
