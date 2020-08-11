@@ -8,7 +8,6 @@ import javax.websocket.server.PathParam;
 import java.util.List;
 
 @RestController
-@RequestMapping("products")
 public class ProductController {
 
     private final ProductService productService;
@@ -17,17 +16,17 @@ public class ProductController {
         this.productService = productService;
     }
 
-    @GetMapping("/all")
+    @GetMapping("/products/all")
     public List<ProductResponse> getAll() {
         return productService.getAll();
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/products/{id}")
     public ProductResponse getById(@PathVariable Integer id) {
         return productService.getById(id);
     }
 
-    @GetMapping
+    @GetMapping("/products/")
     public List<ProductResponse> getByBrand(@RequestParam("brand") String brand) {
         return productService.getByBrand(brand);
     }
