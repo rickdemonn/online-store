@@ -1,5 +1,5 @@
 window.addEventListener("load", () => {
-    window.location.hash = '';
+	window.location.hash = '';
 })
 
 categoriesStartListener();

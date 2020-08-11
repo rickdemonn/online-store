@@ -1,16 +1,16 @@
 const categoriesStartListener = () => {
-    $('#category-btn').click(function(e) {
-        e.preventDefault();
-        window.location.hash = '#categories';
-    });
-    $('.button-hero').click(function(e) {
-        e.preventDefault();
-        window.location.hash = '#categories';
-    });
-    $('#category-footer').click(function(e) {
-        e.preventDefault();
-        window.location.hash = '#categories';
-    });
+	$('#category-btn').click(function (e) {
+		e.preventDefault();
+		window.location.hash = '#categories';
+	});
+	$('.button-hero').click(function (e) {
+		e.preventDefault();
+		window.location.hash = '#categories';
+	});
+	$('#category-footer').click(function (e) {
+		e.preventDefault();
+		window.location.hash = '#categories';
+	});
 };
 
 // const createCategories = event => {
@@ -34,66 +34,66 @@ const categoriesStartListener = () => {
 // };
 
 const createCategories = event => {
-    // event.preventDefault();
+	// event.preventDefault();
 
-    $('section').removeClass('active');
-    $('.category-page').addClass('active');
+	$('section').removeClass('active');
+	$('.category-page').addClass('active');
 
-    const parent = document.querySelector('.category-list .row');
-    parent.innerHTML = '';
+	const parent = document.querySelector('.category-list .row');
+	parent.innerHTML = '';
 
-    const productsBlock = document.createElement('div');
-    productsBlock.textContent = "Choose a category you're interested in";
-    productsBlock.className = 'products-block';
-    parent.appendChild(productsBlock);
-    // categories.append($('<div/>').addClass('container'));
-    fetch(categoriesUrl)
-        .then(res => {
-            return res.json();
-        })
-        .then(res => {
-            $('.main-categories ul').children().remove();
-            createBlockOfCategories(res);
-        })
-        .catch(reject => {
-            console.log("Oops");
-            console.log(reject);
-        });
+	const productsBlock = document.createElement('div');
+	productsBlock.textContent = "Choose a category you're interested in";
+	productsBlock.className = 'products-block';
+	parent.appendChild(productsBlock);
+	// categories.append($('<div/>').addClass('container'));
+	fetch(categoriesUrl)
+			.then(res => {
+				return res.json();
+			})
+			.then(res => {
+				$('.main-categories ul').children().remove();
+				createBlockOfCategories(res);
+			})
+			.catch(reject => {
+				console.log("Oops");
+				console.log(reject);
+			});
 };
 
 const createBlockOfCategories = (response) => {
-    response.forEach(categoryItem => {
-        const parent = document.querySelector('.main-categories ul');
-        
-        const {id, name, description, img} = categoryItem;
+	response.forEach(categoryItem => {
+		const parent = document.querySelector('.main-categories ul');
 
-        const listItem = document.createElement('li');
-        listItem.classList.add("filter-list");
+		const {id, name, description, img} = categoryItem;
 
-        const radio = document.createElement('input');
-        radio.setAttribute('type', 'radio');
-        radio.setAttribute('name', 'category');
-        radio.setAttribute('id', `category-${id}`);
-        radio.setAttribute('category-id', id);
-        radio.className = 'pixel-radio';
+		const listItem = document.createElement('li');
+		listItem.classList.add("filter-list");
 
-        const label = document.createElement('label');
-        label.setAttribute('for', `category-${id}`);
-        label.textContent = name;
+		const radio = document.createElement('input');
+		radio.setAttribute('type', 'radio');
+		radio.setAttribute('name', 'category');
+		radio.setAttribute('id', `category-${id}`);
+		radio.setAttribute('category-id', id);
+		radio.className = 'pixel-radio';
 
-        listItem.appendChild(radio);
-        listItem.appendChild(label);
+		const label = document.createElement('label');
+		label.setAttribute('for', `category-${id}`);
+		label.textContent = name;
 
-        radio.addEventListener('click', () => {
-            const filters = document.forms.brandFilters.querySelector('ul');
-            filters.innerHTML = '';
+		listItem.appendChild(radio);
+		listItem.appendChild(label);
 
-            showProductsByFilters(id);
-            getBrandsFilterByCategory(id);
-           // $('.common-filter form').children().filter('input').prop('checked', false)
-            // $(document.forms.filterForm).children().filter('input').prop('checked', false);
-        })
+		radio.addEventListener('click', () => {
+			const filters = document.forms.brandFilters.querySelector('ul');
+			filters.innerHTML = '';
 
-        parent.appendChild(listItem);
-    })
+			showProductsByFilters(id);
+			getBrandsFilterByCategory(id);
+			// $('.common-filter form').children().filter('input').prop('checked', false)
+			// $(document.forms.filterForm).children().filter('input').prop('checked', false);
+		})
+
+		parent.appendChild(listItem);
+	})
 };

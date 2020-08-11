@@ -18,7 +18,7 @@ const clearLocalStorage = () => {
 
 const setOrderInfo = () => {
 	$('#order-number').text(`: ${rand(10000, 99999)}`);
-	$('#order-date').text(`: ${Date().toLocaleString().replace(/:\d{2}\s.*/,' ')}`);
+	$('#order-date').text(`: ${Date().toLocaleString().replace(/:\d{2}\s.*/, ' ')}`);
 	$('#order-total').text(`: ${$('#total-in-order').text()}`);
 	const payMethod = $('#f-option5').prop('checked') ? ': Check Payments' : ': PayPal';
 	$('#order-paymethod').text(payMethod);
@@ -40,7 +40,7 @@ const fillOrderDetails = () => {
 
 const createProductBlock = () => {
 	const productBlock = $('#order-products-bottom');
-	$('#order-products').children().not(':first-child').each(function() {
+	$('#order-products').children().not(':first-child').each(function () {
 		$('<tr/>').append($('<td>').append($('<p/>', {text: `${$(this).children().text()}`}))).appendTo(productBlock);
 	});
 	return productBlock;
@@ -49,7 +49,6 @@ const createProductBlock = () => {
 const rand = (min, max) => {
 	return Math.floor(Math.random() * (max - min + 1)) + min;
 }
-
 
 const goHome = event => {
 	event.preventDefault();

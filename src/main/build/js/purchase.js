@@ -3,7 +3,7 @@ const startOfThePurchaseProcess = (e) => {
 	const form = $('#checkout-form');
 	const isMistakeInForm = validateForm(form);
 
-	if(!isMistakeInForm) {
+	if (!isMistakeInForm) {
 		window.location.hash = '#order-confirmation';
 	}
 }
@@ -65,8 +65,8 @@ const validateForm = form => {
 	const cardField = $('#card-field');
 	const cardFieldParent = $('#card-field-parent');
 
-	if($('#f-option6').prop('checked')) {
-		if(!cardPattern.test(cardField.val())) {
+	if ($('#f-option6').prop('checked')) {
+		if (!cardPattern.test(cardField.val())) {
 			isMistake = true
 			cardFieldParent.addClass('error');
 		} else {
@@ -76,7 +76,7 @@ const validateForm = form => {
 
 	let isConfirm = $('#isconfirm');
 
-	if(!isConfirm.prop('checked')) {
+	if (!isConfirm.prop('checked')) {
 		isMistake = true;
 		isConfirm.parent().addClass('error');
 	} else {

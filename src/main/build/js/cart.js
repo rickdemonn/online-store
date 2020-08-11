@@ -33,7 +33,7 @@ const addProductToCart = event => {
 		}
 	})
 	if (!isInAlreadyInCart) {
-		cart.push({ productId: productId, count: 1 });
+		cart.push({productId: productId, count: 1});
 	}
 
 	let countOfAllProductsInCart = calculateCountOfAllProductsInCart(cart);
@@ -76,51 +76,51 @@ const hideModalCart = () => {
 const fillCart = () => {
 	const productsInCart = JSON.parse(localStorage.getItem('cart'));
 	fetch(productsUrl)
-		.then(res => res.json())
-		.then(res => {
-			let isEmptyCart = true;
-			let productInCartNumber = 1;
-			res.forEach(product => {
-				productsInCart.forEach(productInCart => {
-					if (product.id === productInCart.productId) {
-						isEmptyCart = false;
-						createBlockWithProductInCart(product, productInCart.count, productInCartNumber++);
-					}
+			.then(res => res.json())
+			.then(res => {
+				let isEmptyCart = true;
+				let productInCartNumber = 1;
+				res.forEach(product => {
+					productsInCart.forEach(productInCart => {
+						if (product.id === productInCart.productId) {
+							isEmptyCart = false;
+							createBlockWithProductInCart(product, productInCart.count, productInCartNumber++);
+						}
+					})
 				})
-			})
-			if (isEmptyCart) {
-				if (document.getElementById('btn-for-buy-form')) {
-					document.getElementById('btn-for-buy-form').remove();
+				if (isEmptyCart) {
+					if (document.getElementById('btn-for-buy-form')) {
+						document.getElementById('btn-for-buy-form').remove();
+					}
+
+					const row = document.createElement('tr');
+					const cell = document.createElement('td');
+					cell.className = 'empty-cart-message';
+					cell.textContent = 'Cart is Empty';
+					cell.setAttribute('colspan', '4');
+					row.appendChild(cell);
+					$('.table > tbody').append(row);
+				} else {
+					if (document.getElementById('btn-for-buy-form')) {
+						return;
+					}
+
+					const purchaseBtn = document.createElement('button');
+					purchaseBtn.setAttribute('type', 'button');
+					purchaseBtn.setAttribute('id', 'btn-for-buy-form');
+					purchaseBtn.textContent = 'Checkout';
+					purchaseBtn.className = 'button';
+					purchaseBtn.addEventListener('click', function () {
+						window.location.hash = '#checkout';
+					});
+
+					$('.cart_inner').append(purchaseBtn);
 				}
-
-				const row = document.createElement('tr');
-				const cell = document.createElement('td');
-				cell.className = 'empty-cart-message';
-				cell.textContent = 'Cart is Empty';
-				cell.setAttribute('colspan', '4');
-				row.appendChild(cell);
-				$('.table > tbody').append(row);
-			} else {
-				if (document.getElementById('btn-for-buy-form')) {
-					return;
-				}
-
-				const purchaseBtn = document.createElement('button');
-				purchaseBtn.setAttribute('type', 'button');
-				purchaseBtn.setAttribute('id', 'btn-for-buy-form');
-				purchaseBtn.textContent = 'Checkout';
-				purchaseBtn.className = 'button';
-				purchaseBtn.addEventListener('click', function () {
-					window.location.hash = '#checkout';
-				});
-
-				$('.cart_inner').append(purchaseBtn);
-			}
-		});
+			});
 }
 
 const createBlockWithProductInCart = (product, count, productInCartNumber) => {
-	const { id, brand, model, price, img } = product;
+	const {id, brand, model, price, img} = product;
 	const parentTrOfProductInCart = $('<tr/>', {
 		'data-productnum': productInCartNumber,
 		'data-id': id,
@@ -130,24 +130,24 @@ const createBlockWithProductInCart = (product, count, productInCartNumber) => {
 	});
 	const imgWithBrand = $('<td/>').appendTo(parentTrOfProductInCart);
 	$(imgWithBrand).append($('<div/>').addClass('media')
-		.append($('<div/>').addClass('cart-product-image-container')
-			.append($(`<img src="${img}">`).addClass('cart-product-image')))
-		.append($('<div/>').addClass('media-body').append($('<p/>', { text: `${brand} ${model}` }))));
+			.append($('<div/>').addClass('cart-product-image-container')
+					.append($(`<img src="${img}">`).addClass('cart-product-image')))
+			.append($('<div/>').addClass('media-body').append($('<p/>', {text: `${brand} ${model}`}))));
 
 	const priceBlock = $('<td/>').appendTo(parentTrOfProductInCart);
-	priceBlock.append($('<h5/>', { text: `${price} UAH` }).addClass('product-in-cart-price'));
+	priceBlock.append($('<h5/>', {text: `${price} UAH`}).addClass('product-in-cart-price'));
 
 	const countBlock = $('<td/>').appendTo(parentTrOfProductInCart);
 	countBlock.append($('<div/>').addClass('product_count')
-		.append($('<button/>', { type: 'button', text: '-' }).addClass('product_count').click(removeOneProductFromCart))
-		.append($('<div/>', {
-			'data-count': count,
-			text: count
-		}).addClass('product-in-cart-count').css('margin-top', '5px'))
-		.append($('<button/>', { type: 'button', text: '+' }).addClass('product_count').click(addOneProductToCart)));
+			.append($('<button/>', {type: 'button', text: '-'}).addClass('product_count').click(removeOneProductFromCart))
+			.append($('<div/>', {
+				'data-count': count,
+				text: count
+			}).addClass('product-in-cart-count').css('margin-top', '5px'))
+			.append($('<button/>', {type: 'button', text: '+'}).addClass('product_count').click(addOneProductToCart)));
 
 	const totalPriceBlock = $('<td/>').appendTo(parentTrOfProductInCart);
-	totalPriceBlock.append($('<h5/>', { text: `${price * count} UAH` }).addClass('product-in-cart-price-total'));
+	totalPriceBlock.append($('<h5/>', {text: `${price * count} UAH`}).addClass('product-in-cart-price-total'));
 
 	const deleteProductBlock = $('<td/>').appendTo(parentTrOfProductInCart);
 	deleteProductBlock.append($('<div/>').addClass('product-delete').click(deleteProductFromCart));
@@ -167,26 +167,26 @@ const deleteProductFromCart = event => {
 
 	productBlock.remove();
 	cart.find(productInCart => {
-		if (productInCart.productId !== productInCartId && cart.length > 1) {
-			newCart.push(productInCart);
-			localStorage.setItem('cart', JSON.stringify(newCart));
-			changeCountOfCardIcon();
-		} else if (productInCart.productId === productInCartId && cart.length < 2) {
-			localStorage.setItem('cart', JSON.stringify(newCart));
+				if (productInCart.productId !== productInCartId && cart.length > 1) {
+					newCart.push(productInCart);
+					localStorage.setItem('cart', JSON.stringify(newCart));
+					changeCountOfCardIcon();
+				} else if (productInCart.productId === productInCartId && cart.length < 2) {
+					localStorage.setItem('cart', JSON.stringify(newCart));
 
-			$('#btn-for-buy-form').remove();
-			
-			const row = document.createElement('tr');
-			const cell = document.createElement('td');
-			cell.className = 'empty-cart-message';
-			cell.textContent = 'Cart is Empty';
-			cell.setAttribute('colspan', '4');
-			row.appendChild(cell);
-			$('.table > tbody').append(row);
+					$('#btn-for-buy-form').remove();
 
-			changeCountOfCardIcon(0);
-		}
-	}
+					const row = document.createElement('tr');
+					const cell = document.createElement('td');
+					cell.className = 'empty-cart-message';
+					cell.textContent = 'Cart is Empty';
+					cell.setAttribute('colspan', '4');
+					row.appendChild(cell);
+					$('.table > tbody').append(row);
+
+					changeCountOfCardIcon(0);
+				}
+			}
 	);
 }
 
