@@ -43,21 +43,41 @@ const checkCommentsFromLocalStorage = productId => {
 	}
 }
 
-const createProductInfo = product => {
+const createProductInfo = async product => {
 	const {id, categoryId, brand, model, price, img, description} = product;
 	const imgParent = $('.single-prd-item');
 	$('#product-detail-img').remove();
 	$(`<img src="${img}" id="product-detail-img">`, {id: 'product-detail-img'}).addClass('img-fluid').appendTo(imgParent);
 
+	const categoryName = await getCategoryName(categoryId);
+	$('#category-in-product').remove();
+	$('.s_product_text').prepend($('<p/>', {text: `Category: ${categoryName}`, id: 'category-in-product'}));
 	$('#brand-model').text(`${brand} ${model}`);
 	$('#product-info-price').text(`${price} UAH`);
 	$('#product-description').text(description);
 	$('#add-to-cart-pd').attr('data-id', id);
 }
 
+const getCategoryName = async (categoryId) => {
+	let categoryName;
+	await fetch(categoriesUrl)
+			.then(res => res.json())
+			.then(res => {
+				res.forEach(item => {
+					if (categoryId === item.id) {
+						categoryName = item.name;
+					}
+				})
+			})
+	return categoryName;
+}
+
 const prepareAddProductToCart = event => {
 	event.preventDefault();
-	addProductToCart(event);
+	const quantity = $('#sst').val();
+	for (let i = 0; i < quantity; i++) {
+		addProductToCart(event);
+	}
 }
 
 const createProductComments = comments => {
