@@ -1,0 +1,32 @@
+server:
+  port: 8080
+
+logging:
+  level:
+    ua.pivdenny: debug
+    org:
+      springframework:
+        orm.jpa: warn
+        web: warn
+
+spring:
+  application:
+    name: online-store
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password: postgres
+
+  jpa:
+    open-in-view: false
+    properties:
+      hibernate:
+        order_inserts: true
+        order_updates: true
+        jdbc:
+          batch_size: 20
+          fetch_size: 20
+          batch_versioned_data: true
+    hibernate:
+      ddl-auto: validate
