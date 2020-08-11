@@ -33,6 +33,11 @@ const categoriesStartListener = () => {
 //         });
 // };
 
+const showCategories = () => {
+	$('section').removeClass('active');
+	$('.category-page').addClass('active');
+}
+
 const createCategories = event => {
 	// event.preventDefault();
 

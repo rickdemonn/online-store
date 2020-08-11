@@ -7,6 +7,9 @@ function initRouting() {
         case '#categories':
             createCategories();
             break;
+        case '#category':
+            showCategories();
+            break;
         case '#product-details':
             showProductDetail();
             break;

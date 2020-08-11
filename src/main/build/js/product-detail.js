@@ -51,11 +51,16 @@ const createProductInfo = async product => {
 
 	const categoryName = await getCategoryName(categoryId);
 	$('#category-in-product').remove();
-	$('.s_product_text').prepend($('<p/>', {text: `Category: ${categoryName}`, id: 'category-in-product'}));
+	$('.s_product_text').prepend($('<a/>', {text: `Category: ${categoryName}`, id: 'category-in-product', 'href': '#'}).click(goBack));
 	$('#brand-model').text(`${brand} ${model}`);
 	$('#product-info-price').text(`${price} UAH`);
 	$('#product-description').text(description);
 	$('#add-to-cart-pd').attr('data-id', id);
+}
+
+const goBack = (e) => {
+	e.preventDefault();
+	window.location.hash = '#category';
 }
 
 const getCategoryName = async (categoryId) => {
