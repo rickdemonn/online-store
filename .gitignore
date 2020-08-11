@@ -3,6 +3,8 @@
 /.env
 /run/.env
 node_modules
+/node
+/etc
 
 
 ### STS ###

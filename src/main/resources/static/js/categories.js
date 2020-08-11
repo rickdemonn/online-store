@@ -1,15 +1,15 @@
 const categoriesStartListener = () => {
 	$('#category-btn').click(function (e) {
 		e.preventDefault();
-		window.location.hash = '#categories';
+		window.location.hash = 'categories';
 	});
 	$('.button-hero').click(function (e) {
 		e.preventDefault();
-		window.location.hash = '#categories';
+		window.location.hash = 'categories';
 	});
 	$('#category-footer').click(function (e) {
 		e.preventDefault();
-		window.location.hash = '#categories';
+		window.location.hash = 'categories';
 	});
 };
 

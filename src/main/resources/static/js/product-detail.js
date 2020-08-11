@@ -60,7 +60,7 @@ const createProductInfo = async product => {
 
 const goBack = (e) => {
 	e.preventDefault();
-	window.location.hash = '#category';
+	window.location.hash = 'category';
 }
 
 const getCategoryName = async (categoryId) => {

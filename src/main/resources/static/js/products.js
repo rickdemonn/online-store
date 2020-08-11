@@ -62,7 +62,7 @@ const createBlockOfProducts = products => {
 		card.addEventListener('click', function (e) {
 			e.preventDefault();
 			productIdForProductDetail = e.currentTarget.attributes['product-id'].value;
-			window.location.hash = '#product-details';
+			window.location.hash = 'product-details';
 		});
 		parent.appendChild(card);
 
