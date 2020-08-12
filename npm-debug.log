@@ -1,0 +1,28 @@
+0 info it worked if it ends with ok
+1 verbose cli [
+1 verbose cli   'C:\\Users\\Usserr\\IdeaProjects\\online-store\\node\\node.exe',
+1 verbose cli   'C:\\Users\\Usserr\\IdeaProjects\\online-store\\node\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'install'
+1 verbose cli ]
+2 info using npm@3.3.12
+3 info using node@v12.0.0
+4 verbose stack ReferenceError: primordials is not defined
+4 verbose stack     at evalmachine.<anonymous>:27:35
+4 verbose stack     at Object.<anonymous> (C:\Users\Usserr\IdeaProjects\online-store\node\node_modules\npm\node_modules\cmd-shim\node_modules\graceful-fs\fs.js:11:1)
+4 verbose stack     at Module._compile (internal/modules/cjs/loader.js:759:30)
+4 verbose stack     at Object.Module._extensions..js (internal/modules/cjs/loader.js:770:10)
+4 verbose stack     at Module.load (internal/modules/cjs/loader.js:628:32)
+4 verbose stack     at Function.Module._load (internal/modules/cjs/loader.js:555:12)
+4 verbose stack     at Module.require (internal/modules/cjs/loader.js:666:19)
+4 verbose stack     at require (internal/modules/cjs/helpers.js:16:16)
+4 verbose stack     at Object.<anonymous> (C:\Users\Usserr\IdeaProjects\online-store\node\node_modules\npm\node_modules\cmd-shim\node_modules\graceful-fs\graceful-fs.js:3:27)
+4 verbose stack     at Module._compile (internal/modules/cjs/loader.js:759:30)
+5 verbose cwd C:\Users\Usserr\IdeaProjects\online-store
+6 error Windows_NT 10.0.18362
+7 error argv "C:\\Users\\Usserr\\IdeaProjects\\online-store\\node\\node.exe" "C:\\Users\\Usserr\\IdeaProjects\\online-store\\node\\node_modules\\npm\\bin\\npm-cli.js" "install"
+8 error node v12.0.0
+9 error npm  v3.3.12
+10 error primordials is not defined
+11 error If you need help, you may report this error at:
+11 error     <https://github.com/npm/npm/issues>
+12 verbose exit [ 1, true ]

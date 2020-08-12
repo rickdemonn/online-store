@@ -3,7 +3,7 @@
 /.env
 /run/.env
 node_modules
-/node
+**/node/
 /etc
 
 

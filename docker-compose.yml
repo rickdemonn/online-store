@@ -18,5 +18,5 @@ services:
       timeout: 5s
       retries: 6
 
-  online-store:
-    build: .
+#  online-store:
+#    build: .

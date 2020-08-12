@@ -16,6 +16,12 @@ gulp.task('images',  () => {
         .pipe(gulp.dest('src/main/resources/static/build/images'))
 });
 
+gulp.task('img',  () => {
+  return gulp.src('src/main/frontend/img/**/*.*')
+      .pipe(imagemin({optimizationLevel: 5}))
+      .pipe(gulp.dest('src/main/resources/static/build/img'))
+});
+
 gulp.task('js', () => {
   return gulp.src('src/main/frontend/js/*.js')
         // .pipe(babel())
@@ -26,7 +32,7 @@ gulp.task('js', () => {
 });
 
 const defaultTask = () => {
-  return gulp.parallel('js', 'styles', 'images');
+  return gulp.parallel('js', 'styles', 'images', 'img');
 };
 
 gulp.task('styles', () => {
@@ -41,5 +47,5 @@ gulp.task('styles', () => {
 gulp.task('default', defaultTask());
 
 gulp.task('watch', () => {
-  return gulp.watch(['src/main/frontend/js/*.js', 'src/main/frontend/scss/*.scss', 'src/main/frontend/images/**/*.*'], {}, defaultTask())
+  return gulp.watch(['src/main/frontend/js/*.js', 'src/main/frontend/scss/*.scss', 'src/main/frontend/images/**/*.*', 'src/main/frontend/img/**/*.*'], {}, defaultTask())
 });
