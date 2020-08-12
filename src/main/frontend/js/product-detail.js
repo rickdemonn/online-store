@@ -47,7 +47,7 @@ const createProductInfo = async product => {
 	const {id, categoryId, brand, model, price, img, description} = product;
 	const imgParent = $('.single-prd-item');
 	$('#product-detail-img').remove();
-	$(`<img src="${img}" id="product-detail-img">`, {id: 'product-detail-img'}).addClass('img-fluid').appendTo(imgParent);
+	$(`<${img} src="img" id="product-detail-img">`, {id: 'product-detail-img'}).addClass('img-fluid').appendTo(imgParent);
 
 	const categoryName = await getCategoryName(categoryId);
 	$('#category-in-product').remove();

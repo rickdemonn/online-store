@@ -11,35 +11,35 @@ const notify = require('gulp-notify');
 const stripCssComments = require('gulp-strip-css-comments');
 
 gulp.task('images',  () => {
-  return gulp.src('./src/main/resources/static/main/images/**/*.*')
+  return gulp.src('src/main/frontend/images/**/*.*')
         .pipe(imagemin({optimizationLevel: 5}))
         .pipe(gulp.dest('src/main/resources/static/build/images'))
 });
 
 gulp.task('js', () => {
-  return gulp.src('./src/main/js/*.js')
+  return gulp.src('src/main/frontend/js/*.js')
         // .pipe(babel())
         // .pipe(uglify())
         // .pipe(concat('app-main.js', {newLine: ';'}))
         // .pipe(rename({ suffix: '.min' }))
-        .pipe(gulp.dest('./src/main/resources/static/build/js'))
+        .pipe(gulp.dest('src/main/resources/static/build/js'))
 });
 
 const defaultTask = () => {
   return gulp.parallel('js', 'styles', 'images');
-}
+};
 
 gulp.task('styles', () => {
-  return gulp.src('./src/main/resources/static/scss/style.scss')
+  return gulp.src('src/main/frontend/scss/style.scss')
         .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
         .pipe(stripCssComments())
         .pipe(rename({ suffix: '.min' }))
-        .pipe(gulp.dest('./src/main/resources/static/build/css'))
+        .pipe(gulp.dest('src/main/resources/static/build/css'))
 
 });
 
 gulp.task('default', defaultTask());
 
 gulp.task('watch', () => {
-  return gulp.watch(['./src/main/resources/static/js/*.js', './src/main/resources/static/scss/*.scss', './src/main/resources/static/images/**/*.*'], {}, defaultTask())
-})
+  return gulp.watch(['src/main/frontend/js/*.js', 'src/main/frontend/scss/*.scss', 'src/main/frontend/images/**/*.*'], {}, defaultTask())
+});

@@ -4,19 +4,19 @@ function initRouting() {
             $('.section').removeClass('active');
             $('.home-page').addClass('active');
             break;
-        case '#categories':
+        case 'categories':
             createCategories();
             break;
-        case '#category':
+        case 'category':
             showCategories();
             break;
-        case '#product-details':
+        case 'product-details':
             showProductDetail();
             break;
-        case '#checkout':
+        case 'checkout':
             checkOutListener();
             break;
-        case '#order-confirmation':
+        case 'order-confirmation':
             productWasSuccessfullyPurchased();
             break;
     }

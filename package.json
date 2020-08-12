@@ -4,8 +4,7 @@
   "description": "Hillel Front-End Exam",
   "main": "index.html",
   "scripts": {
-    "start": "babel src/main/js/ -d src/main/build/ --watch",
-    "css": "gulp watch"
+    "build": "babel src/main/frontend/js/ -d src/main/resources/static/build/"
   },
   "repository": {
     "type": "git",

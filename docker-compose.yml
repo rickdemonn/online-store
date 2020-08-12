@@ -17,3 +17,6 @@ services:
       interval: 20s
       timeout: 5s
       retries: 6
+
+  online-store:
+    build: .

@@ -131,7 +131,7 @@ const createBlockWithProductInCart = (product, count, productInCartNumber) => {
 	const imgWithBrand = $('<td/>').appendTo(parentTrOfProductInCart);
 	$(imgWithBrand).append($('<div/>').addClass('media')
 			.append($('<div/>').addClass('cart-product-image-container')
-					.append($(`<img src="${img}">`).addClass('cart-product-image')))
+					.append($(`<${img} src="img">`).addClass('cart-product-image')))
 			.append($('<div/>').addClass('media-body').append($('<p/>', {text: `${brand} ${model}`}))));
 
 	const priceBlock = $('<td/>').appendTo(parentTrOfProductInCart);
