@@ -16,13 +16,15 @@
         <div class="container">
           <a class="navbar-brand logo_h" href="#"><img src="img/logo.png" alt=""></a>
           <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
-            <form name="filterStringPlace">
-            </form>
+
             <ul class="nav navbar-nav menu_nav ml-auto mr-auto">
               <li class="nav-item active"><a class="nav-link" href="#">Home</a></li>
               <li class="nav-item"><a class="nav-link" id="category-btn" href="#">Categories</a></li>
             </ul>
-
+            <form name="filterStringPlace" id="filterProducts">
+              <input type="text" id="filter-field" placeholder="search by brand">
+              <input type="button" id="filter-btn" value="search">
+            </form>
             <ul class="nav-shop">
               <li class="nav-item"><button class="ti-shopping-cart"><span class="nav-shop__circle"></span></button> </li>
             </ul>
