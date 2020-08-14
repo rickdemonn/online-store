@@ -88,26 +88,37 @@ const showProductsByCategory = (categoryId, filters) => {
 				return res.json();
 			})
 			.then(res => {
-				let productsByCategory = [];
-				res.find(product => {
-					if (product.categoryId === categoryId) {
-						productsByCategory.push(product);
-					}
-				});
+				let highestPrice = 0;
+				const productsByCategory = [];
 
-				if (filters) {
-					const filteredProducts = [];
-					filters.forEach(filter => {
-						productsByCategory.find(product => {
-							if (product.brand === filter) {
-								filteredProducts.push(product);
+				if (!filters) {
+					res.find(product => {
+						if (product.categoryId === categoryId) {
+							productsByCategory.push(product);
+	
+							if (highestPrice < product.price) {
+								highestPrice = product.price;
 							}
-						})
-					})
-					createBlockOfProducts(filteredProducts);
+						}
+					});
 				} else {
-					createBlockOfProducts(productsByCategory);
+					res.find(product => {
+						if (product.categoryId === categoryId) {
+							filters.forEach(filter => { 
+								if (product.brand === filter) {
+									productsByCategory.push(product);
+
+									if (highestPrice < product.price) {
+										highestPrice = product.price;
+									}
+								}
+							});
+						}
+					});
 				}
+
+				createBlockOfProducts(productsByCategory);
+				showPriceRange(highestPrice, productsByCategory);
 			})
 			.catch(reject => {
 				console.log("Oops");

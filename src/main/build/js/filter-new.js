@@ -45,10 +45,21 @@ const showFilters = (brands, categoryId) => {
         parent.appendChild(listItem);
     })
 
-    const applyButton = document.forms.brandFilters.querySelector('#filters-apply-button');
+    if (document.querySelector('#filters-apply-button')) {
+        document.querySelector('#filters-apply-button').remove();
+    }
+
+    const applyButton = document.createElement('button');
+    applyButton.setAttribute('type', 'button');
+    applyButton.classList.add('button', 'filter-button');
+    applyButton.textContent = 'Apply filters';
+    applyButton.setAttribute('id', 'filters-apply-button');
+
     applyButton.addEventListener('click', () => {
         showProductsByFilters(categoryId);
     });
+
+    parent.parentElement.appendChild(applyButton);
 }
 
 const showProductsByFilters = categoryId => {
