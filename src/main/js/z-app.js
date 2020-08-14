@@ -6,6 +6,6 @@ categoriesStartListener();
 // productsStartListener();
 initLocalStorage();
 cartListener();
-createSearchField();
+findYourProductListener();
 window.addEventListener('hashchange', initRouting);
 

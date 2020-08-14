@@ -19,5 +19,8 @@ function initRouting() {
         case '#order-confirmation':
             productWasSuccessfullyPurchased();
             break;
+        case '#search':
+            showSearchingPage();
+            break;
     }
 }
