@@ -264,37 +264,42 @@
      </section>
     <!-- Order_details end-->
     <!-- Products Searching start-->
-    <section class="section search-page">
-      <div class="container">
-        <div class="row">
-          <div class="col-xl-3 col-lg-4 col-md-5">
-            <div class="sidebar-categories">
-              <div class="head">Find your Product</div>
-              <div class="main-categories">
-                <form name="filterStringPlace" id="filterProducts">
-                  <div class="head">Brand</div>
-                  <input type="text" id="filter-field-brand" class="form-control brand-field" placeholder="Search by brand">
-                  <div class="head">Model</div>
-                  <input type="text" id="filter-field-model" class="form-control brand-field" placeholder="Search by model">
-                  <div class="head">Price</div>
-                  <div class="price-range-area">
-                    <form name="priceRange">
-                      <label>From: <input type="number" placeholder="0 UAH" min="0" value="" class="filter-price" id="filter-field-from"></label>
-                      <label>To: <input type="number" value="" class="filter-price" id="filter-field-to"></label></form>
-                </form>
-                <button type="button" class="button filter-button" id="filters-apply-button">Apply filter</button>
+      <section class="section search-page">
+        <div class="container">
+          <div class="row">
+            <div class="col-xl-3 col-lg-4 col-md-5">
+              <div class="sidebar-categories">
+                <div class="head">Find your Product</div>
+                <div class="main-categories">
+                  <form name="filterStringPlace" id="filterProducts">
+                    <div class="head">Brand</div>
+                    <input type="text" id="filter-field-brand" class="form-control brand-field"
+                           placeholder="Search by brand">
+                    <div class="head">Model</div>
+                    <input type="text" id="filter-field-model" class="form-control brand-field"
+                           placeholder="Search by model">
+                    <div class="head">Price</div>
+                    <div class="price-range-area">
+                      <label>From: <input type="number" placeholder="0 UAH" min="0" value="" class="filter-price"
+                                          id="filter-field-from"></label>
+                      <label>To: <input type="number" placeholder="300 000 UAH" value="" class="filter-price" id="filter-field-to"></label>
+                    </div>
+                  </form>
+                  <button type="button" class="button filter-button2" id="filters-apply-button">Apply filter</button>
+                </div>
               </div>
+            </div>
+            <div class="col-xl-9 col-lg-8 col-md-7">
+              <!-- Start Best Seller -->
+              <section class="lattest-product-area pb-40 find-products-list">
+                <div class="row">
+                  <div class="products-block"></div>
+                </div>
+              </section>
+              <!-- End Best Seller -->
             </div>
           </div>
         </div>
-        <div class="col-xl-9 col-lg-8 col-md-7">
-          <!-- Start Best Seller -->
-          <section class="lattest-product-area pb-40 find-products-list">
-            <div class="row"><div class="products-block"></div></div>
-          </section>
-          <!-- End Best Seller -->
-        </div>
-      </div>
     </section>
     <!-- Products Searching end-->
     <!-- Category Page start -->
