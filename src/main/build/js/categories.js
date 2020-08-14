@@ -40,7 +40,8 @@ const showCategories = () => {
 
 const createCategories = event => {
 	// event.preventDefault();
-
+	$('#check-active').children().removeClass('active');
+	$('#category-btn').parent().addClass('active');
 	$('section').removeClass('active');
 	$('.category-page').addClass('active');
 

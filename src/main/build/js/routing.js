@@ -1,6 +1,7 @@
 function initRouting() {
     switch (location.hash) {
         case '':
+            $('#check-active').children().removeClass('active').filter(':first-child').addClass('active');
             $('.section').removeClass('active');
             $('.home-page').addClass('active');
             break;

@@ -7,6 +7,8 @@ const findYourProductListener = () => {
 
 
 const showSearchingPage = () => {
+    $('#check-active').children().removeClass('active');
+    $('#find-your-product-btn').parent().addClass('active');
     $('.section').removeClass('active');
     $('.search-page').addClass('active');
     $('#filters-apply-button').remove();
