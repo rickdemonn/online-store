@@ -9,12 +9,16 @@ const findYourProductListener = () => {
 const showSearchingPage = () => {
     $('.section').removeClass('active');
     $('.search-page').addClass('active');
+    $('#filters-apply-button').remove();
 	$('.find-products-list .products-block').html('Please fill in the fields to search for products');
     searchFieldListeners();
 };
 
 const searchFieldListeners = () => {
-    $('#filters-apply-button').click(startSearching);
+    $('<button/>', {type: 'button', id: 'filters-apply-button', text: 'Apply Filter'})
+        .addClass('button filter-button')
+        .click(startSearching)
+        .appendTo($('#filterProducts'));
 };
 
 const startSearching = () => {
@@ -36,52 +40,6 @@ const startSearching = () => {
                     productArr.push(product);
                 }
             });
-            createBlockOfFindedProducts(productArr);
+            createBlockOfProducts(productArr, '.find-products-list .row');
         });
-};
-
-const createBlockOfFindedProducts = products => {
-	const parent = document.querySelector('.find-products-list .row');
-	parent.innerHTML = '';
-
-	products.forEach(productItem => {
-		const {id, categoryId, brand, model, price, img} = productItem;
-
-		const card = document.createElement('div');
-		card.classList.add("card", "card-product", "col-md-6", "col-lg-4");
-		card.setAttribute('product-id', id);
-
-		const image = document.createElement('img');
-		image.setAttribute('src', img);
-		image.style.height = '180px';
-
-		const textContainer = document.createElement('div');
-		textContainer.classList.add('card-body', 'text-center');
-
-		const productName = document.createElement('h4');
-		productName.className = 'brand-and-model';
-		productName.textContent = `${brand} ${model}`;
-
-		const productDescription = document.createElement('p');
-		productDescription.className = 'card-product__price';
-		productDescription.textContent = `${price} UAH`;
-
-		card.appendChild(image);
-		textContainer.appendChild(productName);
-		textContainer.appendChild(productDescription);
-		card.appendChild(textContainer);
-
-		$('<button/>', {
-			type: 'button',
-			text: 'Add to cart',
-			'data-id': id
-		}).click(addProductToCart).addClass('button').appendTo(card);
-		//
-		card.addEventListener('click', function (e) {
-			e.preventDefault();
-			productIdForProductDetail = e.currentTarget.attributes['product-id'].value;
-			window.location.hash = '#product-details';
-		});
-		parent.appendChild(card);
-	})
 };

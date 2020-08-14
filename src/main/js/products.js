@@ -21,8 +21,8 @@
 //         });
 // };
 
-const createBlockOfProducts = products => {
-	const parent = document.querySelector('.category-list .row');
+const createBlockOfProducts = (products, parentSelector = '.category-list .row') => {
+	const parent = document.querySelector(parentSelector);
 	parent.innerHTML = '';
 
 	products.forEach(productItem => {
@@ -52,7 +52,6 @@ const createBlockOfProducts = products => {
 		textContainer.appendChild(productDescription);
 		card.appendChild(textContainer);
 
-		//Dima - add button for job "checkout"
 		$('<button/>', {
 			type: 'button',
 			text: 'Add to cart',
