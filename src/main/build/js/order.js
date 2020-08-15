@@ -8,8 +8,8 @@ const productWasSuccessfullyPurchased = () => {
 	setBillingAddress();
 	fillOrderDetails();
 
-	// clearLocalStorage();
-	// changeCountOfCardIcon(0);
+	clearLocalStorage();
+	changeCountOfCardIcon(0);
 }
 
 const clearLocalStorage = () => {
