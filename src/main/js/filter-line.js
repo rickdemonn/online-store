@@ -34,8 +34,8 @@ const startSearching = () => {
         .then(res => {
             const productArr = [];
             res.forEach(product => {
-                if (product.brand.toLowerCase().startsWith(brandValue.toLowerCase())
-					&& product.model.toLowerCase().startsWith(modelValue.toLowerCase())
+                if (product.brand.toLowerCase().includes(brandValue.toLowerCase())
+					&& product.model.toLowerCase().includes(modelValue.toLowerCase())
 					&& product.price >= fromValue
 					&& product.price <= toValue) {
 
