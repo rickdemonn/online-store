@@ -8,8 +8,8 @@ const productWasSuccessfullyPurchased = () => {
 	setBillingAddress();
 	fillOrderDetails();
 
-	clearLocalStorage();
-	changeCountOfCardIcon(0);
+	// clearLocalStorage();
+	// changeCountOfCardIcon(0);
 }
 
 const clearLocalStorage = () => {
@@ -39,10 +39,43 @@ const fillOrderDetails = () => {
 }
 
 const createProductBlock = () => {
-	const productBlock = $('#order-products-bottom');
-	$('#order-products').children().not(':first-child').each(function () {
-		$('<tr/>').append($('<td>').append($('<p/>', {text: `${$(this).children().text()}`}))).appendTo(productBlock);
-	});
+	const productBlock = document.querySelector('#order-products-bottom');
+
+	const products = document.querySelectorAll('#order-products')[0].children;
+
+	for (let i = 1; i < products.length; i++) {
+		const row = document.createElement('tr');
+
+		for (let j = 0; j < products[i].children.length; j++) {
+			const cell = document.createElement('td');
+			cell.textContent = products[i].children[j].textContent;
+
+			row.appendChild(cell);
+		}
+
+		productBlock.appendChild(row);
+	}
+
+	const row = document.createElement('tr');
+	const total1 = document.createElement('td');
+	const total2 = document.createElement('td');
+	const total3 = document.createElement('td');
+	const totalSum = document.querySelector('#total-in-order').textContent;
+
+	total1.textContent = 'TOTAL'
+	row.appendChild(total1);
+
+	total2.textContent = ' '
+	row.appendChild(total2);
+
+	total3.textContent = totalSum;
+	row.appendChild(total3);
+
+	productBlock.appendChild(row);
+
+	// $('#order-products').children().not(':first-child').each(function () {
+	// 	$('<tr/>').append($('<td>').append($('<p/>', {text: `${$(this).children().text()}`}))).appendTo(productBlock);
+	// });
 	return productBlock;
 }
 
