@@ -119,20 +119,39 @@ const addReview = () => {
     if (isValidAddReview(name, comment)) {
         const productId = $('#add-to-cart-pd').attr('data-id');
 
-        const userComment = [{id: "1", user: name.val(), userImg: emptyProfileAvatar, comment: comment.val()}];
-        const userCommentsFromLocalStorage = JSON.parse(localStorage.getItem('comments'));
+        const userComment = {id: rand(1, 1000), user: name.val(), userImg: emptyProfileAvatar, comment: comment.val()};
+        const commentToServer = {id: rand(1, 1000), productId: productId, comments: [userComment]};
 
-        const commentToLocal = [{id: rand(1, 1000), productId: productId, comments: userComment}]
-        if (!userCommentsFromLocalStorage) {
-            localStorage.setItem('comments', JSON.stringify(commentToLocal));
-        } else {
-            userCommentsFromLocalStorage.push(commentToLocal[0]);
-            localStorage.setItem('comments', JSON.stringify(userCommentsFromLocalStorage));
+        const params = {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' }
         }
 
-        createProductComments([{user: name.val(), comment: comment.val()}]);
-        name.val('');
-        comment.val('')
+        fetch(commentsUrl)
+            .then(res => res.json())
+            .then(res => {
+                let userCommentsFromServer;
+                res.forEach(comment => {
+                    if (comment.productId === productId) {
+                        userCommentsFromServer = comment.comments;
+                    }
+                });
+
+                if (!userCommentsFromServer) {
+                    params.body = JSON.stringify(commentToServer);
+                    fetch(commentsUrl, params);
+                } else {
+                    userCommentsFromServer.push(userComment);
+                    params.body = JSON.stringify(userCommentsFromServer);
+                    fetch(`${commentsUrl}/${productId}`, params);
+                }
+
+                createProductComments([{user: name.val(), comment: comment.val()}]);
+                
+                name.val('');
+                comment.val('')
+            })
+
     }
 }
 
