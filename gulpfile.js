@@ -19,8 +19,8 @@ gulp.task('images',  () => {
 
 gulp.task('js', () => {
   return gulp.src('./src/main/js/*.js')
-        // .pipe(babel())
-        // .pipe(uglify())
+        .pipe(babel())
+        .pipe(uglify())
         .pipe(order([
           "global-variables.js",
           "cart.js",
