@@ -67,6 +67,8 @@ const goBack = (e) => {
     e.preventDefault();
     if ($('#check-go-back').children().length) {
         window.location.hash = '#category';
+        $('#check-active').children().removeClass('active');
+        $('#category-btn').parent().addClass('active');
         const categoryId = e.currentTarget.dataset.category;
         $('.main-categories form ul input').filter(function () {
             return $(this).attr('category-id') === categoryId;

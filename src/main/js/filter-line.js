@@ -11,13 +11,13 @@ const showSearchingPage = () => {
     $('#find-your-product-btn').parent().addClass('active');
     $('.section').removeClass('active');
     $('.search-page').addClass('active');
-    $('#filters-apply-button').remove();
+    $('#filters-apply-button2').remove();
 	$('.find-products-list .products-block').html('Please fill in the fields to search for products');
     searchFieldListeners();
 };
 
 const searchFieldListeners = () => {
-    $('<button/>', {type: 'button', id: 'filters-apply-button', text: 'Apply Filter'})
+    $('<button/>', {type: 'button', id: 'filters-apply-button2', text: 'Apply Filter'})
         .addClass('button filter-button')
         .click(startSearching)
         .appendTo($('#filterProducts'));
