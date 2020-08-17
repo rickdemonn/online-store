@@ -114,7 +114,7 @@ const createProductComments = comments => {
                 .append($('<h4/>', {text: user}))
             )
             .append($('<div/>').addClass('d-flex')
-                .append($('<p/>', {text: new Date(date).toLocaleString().replace(/:\d{2}\s.*/, ' ')}))
+                .append($('<p/>', {text: new Date(date).toLocaleString().replace(/:\d{2}$/, ' ')}))
             )
         ).append($('<p>', {text: comment}))
             .appendTo(commentsParent)
