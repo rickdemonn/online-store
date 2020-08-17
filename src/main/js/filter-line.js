@@ -42,6 +42,12 @@ const startSearching = () => {
                     productArr.push(product);
                 }
             });
-            createBlockOfProducts(productArr, '.find-products-list .row');
+            const productsBlockParentSelector = '.find-products-list .row';
+            if(productArr.length < 1) {
+                $(productsBlockParentSelector).children().remove();
+                $('<div/>', {text: 'Nothing is found ¯\\_(ツ)_/¯'}).addClass('products-block').appendTo(productsBlockParentSelector);
+            } else {
+                createBlockOfProducts(productArr, productsBlockParentSelector);
+            }
         });
 };

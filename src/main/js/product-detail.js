@@ -54,7 +54,8 @@ const createProductInfo = async product => {
     $('.s_product_text').prepend($('<a/>', {
         text: `Category: ${categoryName}`,
         id: 'category-in-product',
-        'href': '#'
+        'href': '#',
+        'data-category': categoryId
     }).click(goBack));
     $('#brand-model').text(`${brand} ${model}`);
     $('#product-info-price').text(`${price} UAH`);
@@ -66,9 +67,13 @@ const goBack = (e) => {
     e.preventDefault();
     if ($('#check-go-back').children().length) {
         window.location.hash = '#category';
+        const categoryId = e.currentTarget.dataset.category;
+        $('.main-categories form ul input').filter(function () {
+            return $(this).attr('category-id') === categoryId;
+        }).trigger('click');
     } else {
-		window.location.hash = '#categories';
-	}
+        window.location.hash = '#categories';
+    }
 }
 
 const getCategoryName = async (categoryId) => {
@@ -87,7 +92,9 @@ const getCategoryName = async (categoryId) => {
 
 const prepareAddProductToCart = event => {
     event.preventDefault();
-    const quantity = $('#sst').val();
+    const quantityField = $('#sst');
+    const quantity = quantityField.val();
+    quantityField.val(1);
     for (let i = 0; i < quantity; i++) {
         addProductToCart(event);
     }
@@ -122,7 +129,7 @@ const addReview = () => {
         const userComment = [{id: "1", user: name.val(), userImg: emptyProfileAvatar, comment: comment.val()}];
         const userCommentsFromLocalStorage = JSON.parse(localStorage.getItem('comments'));
 
-        const commentToLocal = [{id: rand(1, 1000), productId: productId, comments: userComment}]
+        const commentToLocal = [{id: rand(1, 1000), productId: productId, comments: userComment}];
         if (!userCommentsFromLocalStorage) {
             localStorage.setItem('comments', JSON.stringify(commentToLocal));
         } else {
@@ -131,6 +138,8 @@ const addReview = () => {
         }
 
         createProductComments([{user: name.val(), comment: comment.val()}]);
+        name.parent().removeClass('error');
+        comment.parent().removeClass('error');
         name.val('');
         comment.val('')
     }
