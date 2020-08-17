@@ -43,6 +43,12 @@ const fillYourOrder = () => {
 					})
 				});
 				$('#total-in-order').text(`${totalPrice} UAH`);
+
+				if (totalPrice === 0) {
+					document.querySelector('.button-paypal').style.display = 'none';
+				} else {
+					document.querySelector('.button-paypal').style.display = 'inline-block';
+				}
 			});
 }
 
