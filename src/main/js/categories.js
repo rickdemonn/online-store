@@ -13,33 +13,13 @@ const categoriesStartListener = () => {
 	});
 };
 
-// const createCategories = event => {
-//     event.preventDefault();
-//     $('.hero-banner').remove();
-//     $('#categories-block').remove();
-//     $('#products-block').remove();
-//     const categories = $('<div/>', {id: 'categories-block'}).prependTo($('.site-main'));
-//     categories.append($('<div/>').addClass('container'));
-//     fetch(categoriesUrl)
-//         .then(res => {
-//             return res.json();
-//         })
-//         .then(res => {
-//             createBlockOfCategories(res);
-//         })
-//         .catch(reject => {
-//             console.log("Ups");
-//             console.log(reject);
-//         });
-// };
-
 const showCategories = () => {
 	$('section').removeClass('active');
 	$('.category-page').addClass('active');
 }
 
 const createCategories = event => {
-	// event.preventDefault();
+	
 	$('#check-active').children().removeClass('active');
 	$('#category-btn').parent().addClass('active');
 	$('section').removeClass('active');
@@ -52,7 +32,7 @@ const createCategories = event => {
 	productsBlock.textContent = "Choose a category you're interested in";
 	productsBlock.className = 'products-block';
 	parent.appendChild(productsBlock);
-	// categories.append($('<div/>').addClass('container'));
+	
 	fetch(categoriesUrl)
 			.then(res => {
 				return res.json();
@@ -96,10 +76,14 @@ const createBlockOfCategories = (response) => {
 
 			showProductsByFilters(id);
 			getBrandsFilterByCategory(id);
-			// $('.common-filter form').children().filter('input').prop('checked', false)
-			// $(document.forms.filterForm).children().filter('input').prop('checked', false);
+			sessionStorage.setItem('category', String(id));
 		})
 
 		parent.appendChild(listItem);
 	})
+
+	if (sessionStorage.getItem('category')) {
+		const id = sessionStorage.getItem('category');
+		document.getElementById(`category-${id}`).click();
+	}
 };
