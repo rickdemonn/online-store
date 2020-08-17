@@ -3,6 +3,7 @@
 const gulp = require('gulp');
 const uglify = require('gulp-uglify');
 const babel = require('gulp-babel');
+const order = require('gulp-order');
 const concat = require('gulp-concat');
 const sass = require('gulp-sass');
 const imagemin = require('gulp-imagemin');
@@ -20,8 +21,23 @@ gulp.task('js', () => {
   return gulp.src('./src/main/js/*.js')
         // .pipe(babel())
         // .pipe(uglify())
-        // .pipe(concat('app-main.js', {newLine: ';'}))
-        // .pipe(rename({ suffix: '.min' }))
+        .pipe(order([
+          "global-variables.js",
+          "cart.js",
+          "categories.js",
+          "filter-new.js",
+          "filter-price.js",
+          "filter-line.js",
+          "products.js",
+          "product-detail.js",
+          "purchase.js",
+          "checkout.js",
+          "order.js",
+          "routing.js",
+          "z-app.js"
+        ]))
+        .pipe(concat('app-main.js', {newLine: ';'}))
+        .pipe(rename({ suffix: '.min' }))
         .pipe(gulp.dest('src/main/build/js'))
 });
 
