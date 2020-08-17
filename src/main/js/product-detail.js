@@ -103,15 +103,18 @@ const prepareAddProductToCart = event => {
 const createProductComments = comments => {
     const commentsParent = $('.review_list');
     comments.forEach(commentItem => {
-        const {user, userImg, comment} = commentItem;
+        const {user, date, userImg, comment} = commentItem;
         $('<div/>').addClass('review_item').append($('<div/>').addClass('media')
             .append($('<div/>').addClass('d-flex')
                 .append($('<img/>', {'src': userImg || emptyProfileAvatar}))
             )
             .append($('<div/>').addClass('d-flex')
-                .append($('<h4/>', {text: user})))
-        )
-            .append($('<p>', {text: comment}))
+                .append($('<h4/>', {text: user}))
+            )
+            .append($('<div/>').addClass('d-flex')
+                .append($('<p/>', {text: new Date(date).toLocaleString().replace(/:\d{2}\s.*/, ' ')}))
+            )
+        ).append($('<p>', {text: comment}))
             .appendTo(commentsParent)
     })
 }
@@ -126,7 +129,9 @@ const addReview = () => {
     if (isValidAddReview(name, comment)) {
         const productId = $('#add-to-cart-pd').attr('data-id');
 
-        const userComment = [{id: "1", user: name.val(), userImg: emptyProfileAvatar, comment: comment.val()}];
+        const date = new Date();
+
+        const userComment = [{id: "1", user: name.val(), date: date, userImg: emptyProfileAvatar, comment: comment.val()}];
         const userCommentsFromLocalStorage = JSON.parse(localStorage.getItem('comments'));
 
         const commentToLocal = [{id: rand(1, 1000), productId: productId, comments: userComment}];
@@ -137,7 +142,7 @@ const addReview = () => {
             localStorage.setItem('comments', JSON.stringify(userCommentsFromLocalStorage));
         }
 
-        createProductComments([{user: name.val(), comment: comment.val()}]);
+        createProductComments([{user: name.val(), comment: comment.val(), date: date}]);
         name.parent().removeClass('error');
         comment.parent().removeClass('error');
         name.val('');
