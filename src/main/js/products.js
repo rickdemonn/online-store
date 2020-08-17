@@ -34,7 +34,10 @@ const createBlockOfProducts = (products, parentSelector = '.category-list .row')
 
 		const image = document.createElement('img');
 		image.setAttribute('src', img);
-		image.style.height = '180px';
+
+		const imageContainer = document.createElement('div');
+		imageContainer.classList.add('d-flex', 'justify-content-center', 'align-items-center');
+		imageContainer.appendChild(image);
 
 		const textContainer = document.createElement('div');
 		textContainer.classList.add('card-body', 'text-center');
@@ -47,7 +50,7 @@ const createBlockOfProducts = (products, parentSelector = '.category-list .row')
 		productDescription.className = 'card-product__price';
 		productDescription.textContent = `${price} UAH`;
 
-		card.appendChild(image);
+		card.appendChild(imageContainer);
 		textContainer.appendChild(productName);
 		textContainer.appendChild(productDescription);
 		card.appendChild(textContainer);
