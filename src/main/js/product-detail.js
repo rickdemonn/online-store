@@ -3,6 +3,9 @@ const showProductDetail = () => {
     $('.product-page').addClass('active');
     const addToCard = $('#add-to-cart-pd');
 
+    const addReviewBtn = $('#add-a-review');
+    addReviewBtn.unbind('click');
+
     const products = fetch(productsUrl)
         .then(res => res.json());
 
@@ -28,8 +31,11 @@ const showProductDetail = () => {
         checkCommentsFromLocalStorage(productIdForProductDetail);
 
         addToCard.click(prepareAddProductToCart);
-        $('#add-a-review').click(addReview);
+
+        addReviewBtn.click(addReview);
+
     });
+
 }
 
 const checkCommentsFromLocalStorage = productId => {
@@ -121,12 +127,10 @@ const createProductComments = comments => {
     })
 }
 
-const addReview = () => {
+const addReview = (e) => {
+    e.preventDefault();
     const name = $('#name-to-review');
     const comment = $('#textarea');
-
-    name.parent().removeClass('error');
-    comment.parent().removeClass('error');
 
     if (isValidAddReview(name, comment)) {
         const productId = $('#add-to-cart-pd').attr('data-id');
@@ -145,10 +149,13 @@ const addReview = () => {
         }
 
         createProductComments([{user: name.val(), comment: comment.val(), date: date}]);
+        name.val('');
+        comment.val('');
         name.parent().removeClass('error');
         comment.parent().removeClass('error');
-        name.val('');
-        comment.val('')
+    } else {
+        name.parent().addClass('error');
+        comment.parent().addClass('error');
     }
 }
 
@@ -156,15 +163,12 @@ const isValidAddReview = (name, comment) => {
     let isValid = true;
     const namePattern = /[A-Z]|[А-Я][a-z]|[а-я]{1,} [A-Z]|[А-Я][a-z]|[а-я]{1,}$/;
     if (!name.val()) {
-        name.parent().addClass('error');
         isValid = false;
     }
     if (!comment.val()) {
-        comment.parent().addClass('error');
         isValid = false;
     }
     if (!namePattern.test(name.val())) {
-        name.parent().addClass('error');
         isValid = false;
     }
     return isValid;
