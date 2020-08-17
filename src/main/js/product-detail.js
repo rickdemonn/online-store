@@ -106,17 +106,17 @@ const createProductComments = comments => {
     const commentsParent = $('.review_list');
     comments.forEach(commentItem => {
         const {user, date, userImg, comment} = commentItem;
-        $('<div/>').addClass('review_item').append($('<div/>').addClass('media')
+        $('<div/>').addClass('review_item').append($('<div/>').addClass('media align-items-center mb-2')
             .append($('<div/>').addClass('d-flex')
                 .append($('<img/>', {'src': userImg || emptyProfileAvatar}))
             )
             .append($('<div/>').addClass('d-flex')
                 .append($('<h4/>', {text: user}))
-            )
+            ))
             .append($('<div/>').addClass('d-flex')
                 .append($('<p/>', {text: new Date(date).toLocaleString().replace(/:\d{2}$/, ' ')}))
             )
-        ).append($('<p>', {text: comment}))
+        .append($('<p>', {text: comment}).addClass('w-100'))
             .appendTo(commentsParent)
     })
 }
